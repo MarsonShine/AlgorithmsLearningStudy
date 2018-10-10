@@ -1,3 +1,5 @@
+using System;
+
 namespace Stacks {
     /// <summary>
     /// 基于链表实现的栈
@@ -23,6 +25,16 @@ namespace Stacks {
             int value = top.Data;
             top = top.Next;
             return value;
+        }
+
+        public void PrintAll(){
+            Node p = top;
+            while (p!=null)
+            {
+                Console.WriteLine(p.Data+"   ");
+                p = p.Next;
+            }
+            Console.ReadLine();
         }
         private class Node {
             private int data;
