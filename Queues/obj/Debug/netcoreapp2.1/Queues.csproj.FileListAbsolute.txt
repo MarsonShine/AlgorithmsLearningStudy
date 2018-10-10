@@ -1,0 +1,11 @@
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/obj/Debug/netcoreapp2.1/Queues.csprojAssemblyReference.cache
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/obj/Debug/netcoreapp2.1/Queues.csproj.CoreCompileInputs.cache
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/obj/Debug/netcoreapp2.1/Queues.AssemblyInfoInputs.cache
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/obj/Debug/netcoreapp2.1/Queues.AssemblyInfo.cs
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/bin/Debug/netcoreapp2.1/Queues.deps.json
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/bin/Debug/netcoreapp2.1/Queues.runtimeconfig.json
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/bin/Debug/netcoreapp2.1/Queues.runtimeconfig.dev.json
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/bin/Debug/netcoreapp2.1/Queues.dll
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/bin/Debug/netcoreapp2.1/Queues.pdb
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/obj/Debug/netcoreapp2.1/Queues.dll
+/Volumes/C/MSProject/AlgorithmsLearningStudy/Queues/obj/Debug/netcoreapp2.1/Queues.pdb
