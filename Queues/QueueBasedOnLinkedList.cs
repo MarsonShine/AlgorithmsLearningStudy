@@ -23,8 +23,8 @@ namespace Queues {
         // 出队
         public string Dequeue () {
             if (head == null) return null;
-            string value = head.data;
-            head = head.next;
+            string value = head.Data;
+            head = head.Next;
             if (head == null) {
                 tail = null;
             }
