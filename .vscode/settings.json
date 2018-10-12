@@ -7,6 +7,10 @@
         {
             "name": "feature/Queue",
             "base": "develop"
+        },
+        {
+            "name": "feature/Recurisively",
+            "base": "develop"
         }
     ]
 }

@@ -1,0 +1,11 @@
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\bin\Debug\netcoreapp2.1\Recursively.deps.json
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\bin\Debug\netcoreapp2.1\Recursively.runtimeconfig.json
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\bin\Debug\netcoreapp2.1\Recursively.runtimeconfig.dev.json
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\bin\Debug\netcoreapp2.1\Recursively.dll
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\bin\Debug\netcoreapp2.1\Recursively.pdb
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\obj\Debug\netcoreapp2.1\Recursively.csprojAssemblyReference.cache
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\obj\Debug\netcoreapp2.1\Recursively.csproj.CoreCompileInputs.cache
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\obj\Debug\netcoreapp2.1\Recursively.AssemblyInfoInputs.cache
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\obj\Debug\netcoreapp2.1\Recursively.AssemblyInfo.cs
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\obj\Debug\netcoreapp2.1\Recursively.dll
+D:\MS\Project\AlgorithmsLearningStudy\Recursively\obj\Debug\netcoreapp2.1\Recursively.pdb
