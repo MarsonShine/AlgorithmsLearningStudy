@@ -681,31 +681,29 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/summer/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MS\\Project\\AlgorithmsLearningStudy\\Recursively\\Recursively.csproj",
+      "projectUniqueName": "/Volumes/C/MSProject/AlgorithmsLearningStudy/Recursively/Recursively.csproj",
       "projectName": "Recursively",
-      "projectPath": "D:\\MS\\Project\\AlgorithmsLearningStudy\\Recursively\\Recursively.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\MS\\Project\\AlgorithmsLearningStudy\\Recursively\\obj\\",
+      "projectPath": "/Volumes/C/MSProject/AlgorithmsLearningStudy/Recursively/Recursively.csproj",
+      "packagesPath": "/Users/summer/.nuget/packages/",
+      "outputPath": "/Volumes/C/MSProject/AlgorithmsLearningStudy/Recursively/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/summer/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://www.nuget.org/api/v2/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
