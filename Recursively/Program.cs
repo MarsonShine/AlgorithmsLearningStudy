@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Recursively {
     class Program {
         static void Main (string[] args) {
             Console.WriteLine ("Hello World!");
             Console.WriteLine (FabonacciRecurisively (10));
             Console.WriteLine (Fanonacci (10, 0, 1));
+            Console.WriteLine ("FibonacciRecurisivelyAvoidRepeat:" +
+                FibonacciRecurisivelyAvoidRepeat (10));
             Console.WriteLine (FabonacciTailRecurisively (10, 0, 1));
             int[] source = { 1, 4, 2, 6, 7, 25369, 22, 14, 55, 63, 785, 1532, 3338 };
             Console.WriteLine (Max (source));
@@ -45,6 +49,15 @@ namespace Recursively {
         public static int FabonacciRecurisively (int n) {
             if (n < 2) return n;
             return FabonacciRecurisively (n - 1) + FabonacciRecurisively (n - 2);
+        }
+
+        private static Dictionary<int, int> dic = new Dictionary<int, int> ();
+        public static int FibonacciRecurisivelyAvoidRepeat (int n) {
+            if (n < 2) return n;
+            if (dic.ContainsKey (n)) return dic[n];
+            int ret = FabonacciRecurisively (n - 1) + FabonacciRecurisively (n - 2);
+            dic.Add (n, ret);
+            return ret;
         }
         public static int FabonacciTailRecurisively (int n, int acc1, int acc2) {
             if (n == 0) return acc1;
