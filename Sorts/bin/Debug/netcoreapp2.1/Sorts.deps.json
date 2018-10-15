@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "Recursively/1.0.0": {
+      "Sorts/1.0.0": {
         "runtime": {
-          "Recursively.dll": {}
+          "Sorts.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Recursively/1.0.0": {
+    "Sorts/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

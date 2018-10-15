@@ -1,0 +1,11 @@
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\bin\Debug\netcoreapp2.1\Sorts.deps.json
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\bin\Debug\netcoreapp2.1\Sorts.runtimeconfig.json
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\bin\Debug\netcoreapp2.1\Sorts.runtimeconfig.dev.json
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\bin\Debug\netcoreapp2.1\Sorts.dll
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\bin\Debug\netcoreapp2.1\Sorts.pdb
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\obj\Debug\netcoreapp2.1\Sorts.csprojAssemblyReference.cache
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\obj\Debug\netcoreapp2.1\Sorts.csproj.CoreCompileInputs.cache
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\obj\Debug\netcoreapp2.1\Sorts.AssemblyInfoInputs.cache
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\obj\Debug\netcoreapp2.1\Sorts.AssemblyInfo.cs
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\obj\Debug\netcoreapp2.1\Sorts.dll
+d:\MS\Project\AlgorithmsLearningStudy\Sorts\obj\Debug\netcoreapp2.1\Sorts.pdb
