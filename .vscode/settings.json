@@ -11,10 +11,6 @@
         {
             "name": "feature/Recurisively",
             "base": "develop"
-        },
-        {
-            "name": "feature/sortdoc",
-            "base": "develop"
         }
     ]
 }
