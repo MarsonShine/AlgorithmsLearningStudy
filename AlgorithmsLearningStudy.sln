@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queues", "Queues\Queues.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursively", "Recursively\Recursively.csproj", "{26A9729F-7A4F-4F14-B897-AD7EA6ED0C38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorts", "Sorts\Sorts.csproj", "{9A278642-48D6-4916-9CC3-E68EC6D36DEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{26A9729F-7A4F-4F14-B897-AD7EA6ED0C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26A9729F-7A4F-4F14-B897-AD7EA6ED0C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26A9729F-7A4F-4F14-B897-AD7EA6ED0C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A278642-48D6-4916-9CC3-E68EC6D36DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A278642-48D6-4916-9CC3-E68EC6D36DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A278642-48D6-4916-9CC3-E68EC6D36DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A278642-48D6-4916-9CC3-E68EC6D36DEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

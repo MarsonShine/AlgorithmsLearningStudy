@@ -9,7 +9,7 @@
             "base": "develop"
         },
         {
-            "name": "feature/Recurisively",
+            "name": "feature/sorted",
             "base": "develop"
         }
     ]
