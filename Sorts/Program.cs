@@ -26,7 +26,7 @@ namespace Sorts {
             shellSort.Sort (array4);
             Console.WriteLine ("======选择排序======");
             Console.WriteLine ("======归并排序======");
-            int[] array5 = new int[] { 1, 3, 5, 7, 2, 4, 6, 8 };
+            int[] array5 = new int[] { 2, 3, 1 };
             new MergeSort ().Sort (array5);
             Console.Write ($"{nameof(array5)} = ");
             Array.ForEach (array5, n => Console.Write (n + ","));
