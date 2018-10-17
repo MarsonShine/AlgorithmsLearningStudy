@@ -1,0 +1,16 @@
+{
+    "gitflow4code.features": [
+        {
+            "name": "feature/queues",
+            "base": "develop"
+        },
+        {
+            "name": "feature/Queue",
+            "base": "develop"
+        },
+        {
+            "name": "feature/mergesort",
+            "base": "develop"
+        }
+    ]
+}

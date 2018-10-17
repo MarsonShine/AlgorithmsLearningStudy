@@ -51,6 +51,51 @@ namespace LinkedLists
             InsertBefore(p, newNode);
         }
 
+        public bool RemoveByValue(int value)
+        {
+            if (m_head == null) return false;
+            Node p = m_head;
+            Node q = null;
+
+            while (p != null && p.Value != value)
+            {
+                q = p;
+                p = p.Next;
+            }
+
+            if (p == null) return false;
+
+            if (q == null)
+            {
+                m_head = m_head.Next;
+            }
+            else
+            {
+                q.Next = q.Next.Next;
+            }
+            return true;
+        }
+
+        public bool RemoveByNode(Node p)
+        {
+            if (p == null || m_head == null) return false;
+            if (p == m_head)
+            {
+                m_head = m_head.Next;
+            }
+            Node q = m_head;
+
+            while (q != null && q.Next != p)
+            {
+                q = q.Next;
+            }
+
+            if (q == null) return false;
+
+            q.Next = q.Next.Next;
+            return true;
+        }
+
         private void InsertBefore(Node p, Node newNode)
         {
             if (p == null) return;
