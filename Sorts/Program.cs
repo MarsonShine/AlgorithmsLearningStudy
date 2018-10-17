@@ -25,6 +25,20 @@ namespace Sorts {
             ShellSort shellSort = new ShellSort ();
             shellSort.Sort (array4);
             Console.WriteLine ("======选择排序======");
+            Console.WriteLine ("======归并排序======");
+            int[] array5 = new int[] { 1, 3, 5, 7, 2, 4, 6, 8 };
+            new MergeSort ().Sort (array5);
+            Console.Write ($"{nameof(array5)} = ");
+            Array.ForEach (array5, n => Console.Write (n + ","));
+            Console.Write ("\r\n");
+            Console.WriteLine ("======归并排序======");
+            Console.WriteLine ("======快速排序======");
+            int[] array6 = new int[] { 6, 11, 3, 9, 8 };
+            new QuickSort ().Sort (array6);
+            Console.Write ($"{nameof(array6)} = ");
+            Array.ForEach (array6, n => Console.Write (n + ","));
+            Console.Write ("\r\n");
+            Console.WriteLine ("======快速排序======");
         }
     }
 }
