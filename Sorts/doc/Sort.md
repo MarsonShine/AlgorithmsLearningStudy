@@ -140,4 +140,70 @@ quick_sort_recurise(array,p,r){
 
 这里partition函数其实就是之前提到的随机选取array中的一个元素作为pivot（一般情况下，选取array的最后一个数），然后对array分区，返回pivot在数组中的下标。
 
-如果我们不考虑空间消耗的话，partition函数的思路很简单。我们临时申请两个数组啊a,b，遍历array[p,r]，讲小于pivot的赋值给a，大于pivot给b，最后将a和b数组的数据顺序拷贝到array[p...r]；
+如果我们不考虑空间消耗的话，partition函数的思路很简单。我们临时申请两个数组啊a,b，遍历array[p,r]，讲小于pivot的赋值给a，大于pivot给b，最后将a和b数组的数据顺序拷贝到array[p...r]。
+
+但是这样实现的话，申请的内存空间太大了，不是原地排序算法。并且我们希望快速排序是原地算法排序的，所以空间复杂度要为O(1)，那么partition函数就不能太占空间，这时我们就需要在array[p...r]的原地完成区分操作。
+
+原地分区函数的实现思路很巧妙，先来一段伪代码
+
+```C
+partition(array,p,r){
+    pivot = array[r];
+    i = p;
+    for j = p to r-1 do{
+        if array[j] < pivot{
+            swap array[i] with array[j]
+            i = i+1
+        }
+    }
+    swap array[i] with array[r]
+    return i;
+}
+```
+
+这个处理有点类似选择排序。我们通过游标 i 把数组 array 分为[p...r-1] 两部分。[p...i-1] 是小于 pivot 区间的，我们暂称为 “已排序区间” ，array[i...r-1] 是 “未排序区间”。我们每次都从未排序区间 [i...r-1] 中选取一个元素 array[j]   与pivot比较，如果小于pivot，则加到以排序区间的尾部，就是array[i]的位置。
+
+数组的插入操作，就是在数组某个位置插入，并且其后的元素都往后挪一位，但这样非常耗时。我们可以用交换的处理方式，时间复杂度是O(1)就能完成插入操作。在这里我们只需要将array[j]与array[i]值互换，就可以在O(1)的时间复杂度内将array[j]的值放到下标i的位置。下图就能很好说明
+
+![](https://static001.geekbang.org/resource/image/08/e7/086002d67995e4769473b3f50dd96de7.jpg)
+
+因为分区过程中涉及交换，如果当数组里面有两个8时，恰巧其中一个被当作pivot，那么另外一个在分区处理后，可能顺序发生变化，所以快速排序不是一个稳定排序算法。
+
+讲到这里我们发现，貌似这跟归并排序算法很像，其实归并排序的处理过程是自下而上的，先分解为子问题，然后合并。而快速排序相反，它是自顶向下的，先分区，然后在处理字问题。我们前面提到过，归并排序在任何情况下都是O(nlogn)的，但是它不是原地排序的，因此每次排序都会占用很多内存，而快速排序却可以通过原地分区函数，可以实现原地排序，从而节省了很多内存。
+
+我们先把上面的伪代码翻译成C#代码在分析快排的性能。
+
+```c#
+public void QuickSort(int[] array) => SortInternal(array, 0, array.Length - 1);
+
+public void SortInternal(int[] array, int p, int r){
+    if(p >= r) return;
+    //分区点
+    int pivot = Portititon(array, p, r);
+    SortInternal(array, p, pivot - 1);
+    SortInternal(array, pivot + 1, r);
+}
+
+public int Portition(int[] array, int p, int r){
+    int pivot = array[r];
+    int i = p;
+    for(int j = p; j < r; j++){
+        if(array[j] < pivot){
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+            i++;
+        }
+    }
+    int tmp = array[i];
+    array[i] = array[r];
+    array[r] = tmp;
+    return i;
+}
+```
+
+### 快速排序的性能分析
+
+因为之前已经讨论过了快排的稳定性和是否原地排序，所以我们着重理一下快排的时间复杂度是多少
+
+我们之前分析过递归的时间复杂度，我们假设pivot
