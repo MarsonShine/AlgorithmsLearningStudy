@@ -25,7 +25,7 @@ namespace Sorts {
                 c[a[i]]++;
             }
             //重新计数，把c数组对应的值改成小于等于下标的值个数
-            for (int i = 1; i < max; i++) {
+            for (int i = 1; i <= max; i++) {
                 c[i] = c[i - 1] + c[i];
             }
             //重新申请一个数组 用来存放排序后的数据
@@ -34,7 +34,7 @@ namespace Sorts {
             for (int i = n - 1; i >= 0; i--) {
                 //取原数组元素对应的下标
                 int index = c[a[i]] - 1;
-                r[index] = c[i];
+                r[index] = a[i];
                 c[a[i]]--;
             }
             //复制
