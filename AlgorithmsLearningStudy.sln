@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursively", "Recursively\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorts", "Sorts\Sorts.csproj", "{9A278642-48D6-4916-9CC3-E68EC6D36DEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searchs", "Searchs\Searchs.csproj", "{48A337AF-E09F-4A97-AEC1-A55C9B291C04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9A278642-48D6-4916-9CC3-E68EC6D36DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A278642-48D6-4916-9CC3-E68EC6D36DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A278642-48D6-4916-9CC3-E68EC6D36DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A337AF-E09F-4A97-AEC1-A55C9B291C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A337AF-E09F-4A97-AEC1-A55C9B291C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A337AF-E09F-4A97-AEC1-A55C9B291C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A337AF-E09F-4A97-AEC1-A55C9B291C04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
