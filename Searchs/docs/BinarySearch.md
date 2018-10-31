@@ -1,3 +1,5 @@
+
+
 ## 二分查找（Binary Search）
 
 二分查找是对有序数据集合的查询算法，又叫 “折半查找算法”。二分查找的思想特别简单，就是把原始区间一分为二，然后判断这个要查找的数在哪个区间，然后继续折半查找，以此类推到查到这个数据。
@@ -219,3 +221,54 @@ public int BinarySearch(int[] array, int targetValue){
 }
 ```
 
+### 变体3：查找第一个值大于等于给定值的元素
+
+比如有这样一组数组：3，4，6，7，10。如果查找第一个大于等于 5 的元素，那就是 6。
+
+实际上，实现的思路跟上面类似：
+
+```c#
+public int BinarySearch(int[] array, int targetValue){
+    int low = 0;
+    int high = array.Length - 1;
+    while(low <= high){
+        int mid = low + (high - low) >> 1;
+        if(array[mid] >= targetValue){
+            if(mid == 0 || array[mid - 1] < targetValue) return mid;
+            else high = mid - 1;
+        }else{
+            low = mid + 1;
+        }
+    }
+    return -1;
+}
+```
+
+### 变体4：查找最后一个值小于等于给定值的元素
+
+给定数组：3，5，6，8，9，10，最后一个小于等于 7 的就是 6。
+
+```c#
+public int BinarySearch(int[] array, int targetValue){
+    int low = 0;
+    int high = array.Length - 1;
+    while(low <= high){
+        int mid = low + (high - low) >> 1;
+        if(array[mid] <= targetValue){
+            if(mid == array.Length - 1 || array[mid + 1] > targetValue){
+                return mid;
+            }else{
+                low = mid + 1;
+            }
+        }else{
+            high = mid - 1;
+        }
+    }
+}
+```
+
+### 如何从12万 IP 数组集合中查找指定 IP 的归属地
+
+首先我们直到 IP 地址每个区间对应不同的归属地，**那么我们会要给 12W IP 排序，然后将这 12W IP 地址转换成 32 位的整数**。所以我们将起始地址，按照对应的整数值的大小关系，从小到大排序。然后这就归纳到 “从数组中查找最后一个值小于等于给定值的元素了。” 
+
+变体的二分查找算法写起来很复杂，稍微一个小细节没有处理就会有 bug。这些容易出错的细节主要包括以下几点：**终止条件、区间上下界更新方法、返回值选择**。
