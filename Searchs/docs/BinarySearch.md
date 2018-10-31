@@ -130,3 +130,92 @@ private int SearchRecursivelyInternal (int[] array, int low, int high, int targe
 关于开篇提到的问题，如何用二分法解决呢？
 
 我们的内存限制是 100M，每个数据大小是 8个字节。最简单的就是把这些数据全部加载到数组中，这样内存消耗就是 8 * 1000 * 1000 * 10 约等于 80M ，是符合内存限制要求的，从小到大排序，然后进行二分法排序。其实用后面会讲到的散列表和二叉树都是可以的，但是这两个算法都需要额外的内存空间，是一种拿 “空间换时间” 的算法。
+
+## 拓展——二分法的变形问题
+
+前面讲的二分法是很简单的二分法算法，是在数据有一定限制条件下，并且数组数据一定不含重复元素的算法。
+
+那么当我们在一组含有重复元素的集合中如何正确使用二分法呢，这就是我们的二分法的变形问题。
+
+二分法的变形问题有很多，但主要遇到的有四种
+
+1. 查找第一个值等于给定值的元素
+2. 查找最后一个值等于给定值的元素
+3. 查找第一个大于等于给定值的元素
+4. 查找最后一个小于等于给定值的元素
+
+这里面算法都有一个前提：集合中的元素已经经过排序了
+
+### 变形1：查找第一个值等于给定值的元素
+
+假设我们有这样一组数据：a[10] = [1,3,4,5,6,8,8,8,11,18]。我们用上面分析的二分法来查找 8 这个值。
+
+首先拿 8 与区间的中间值 a[4] 进行比较，8 比 6 大，于是在下标 5 到 9 的区间继续查找。下标 5 和 9 的中间位置是下标 7，a[7] = 8 ，至此结束？但是下标为 7 的元素它并不是第一个等于给定值的元素，所以还要继续往下走，当找到这个等于给定值的元素时，还要判断这个值是否为第一个值，怎么判断？很简单，我们已经得到下标为 7 的元素，那么只要前一个值不等于给定值 8 就意味着下标 7 的就是第一个，否则继续往前判断。用代码描述：
+
+```c#
+public int BinarySearch(int[] array,int targetValue){
+    int low = 0;
+    int high = array.Length - 1;
+    while(low <= high){
+        int mid = low + (high - low) >> 1;
+        if(array[mid] > targetValue)
+            high = mid - 1;
+        else if(array[mid] < targetValue)
+            low = mid + 1;
+        else{
+            //查找到相等的元素之后要判断是否为第一个
+            if((mid == 0) || array[mid - 1] != targetValue)
+                return mid;
+            else
+                high = mid - 1;
+        }         
+    }
+    return -1;
+}
+```
+
+上面的写法经过一些处理就是下面网上的二分法版本样子
+
+```c#
+public int BinarySearchBeautiful(int[] array,int targetValue){
+	int low = 0;
+    int high = array.Length -1;
+    while(low <= high){
+        int mid = low + (high - low) >> 1;
+        if(array[mid] >= value){
+            high = mid - 1;
+        }else{
+            low = mid + 1;
+        }
+    }
+    if(array[low] == value) return low;
+    else return -1;
+}
+```
+
+### 变形2：查找最后一个值等于给定值的元素
+
+这其实就是把判断条件换了一下：我们根据一般的二分法得出一个相等值，那么我们紧接着就要判断这个下标的值是否是最后一个，所以我们就得判断这个下标值 7 的后一位的值是否等于给定值，如果不等则下标 7 就是最后一位，如相等，我们就更新 low = mid + 1，因为要找的元素肯定在 [mid + 1, high] 之间。
+
+```c#
+public int BinarySearch(int[] array, int targetValue){
+    int low = 0;
+    int high = array.Length - 1;
+    while(low <= high){
+        int mid = low + (high - low) >> 1;
+        if(array[mid] > targetValue)
+            high = mid - 1;
+        else if(array[mid] < targetValue)
+            low = mid + 1;
+        else{
+            //查找到相等的元素之后要判断是否为第一个
+            if((mid == array.Length - 1) || array[mid + 1] != targetValue)
+                return mid;
+            else
+                low = mid + 1;
+        }         
+    }
+    return -1;
+}
+```
+
