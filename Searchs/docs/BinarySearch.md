@@ -108,7 +108,7 @@ public int SearchRecursively (int[] array, int targetValue) =>
 
 private int SearchRecursivelyInternal (int[] array, int low, int high, int targetValue) {
     if (low > high) return -1;
-    int mid = low + ((high - low) >> 1);
+    int mid = low + ((high - low) >> 1); //括号不能少，位运算符的优先级与 +，- 一样
     if (array[mid] == targetValue) {
         return mid;
     } else if (array[mid] < targetValue) {
@@ -159,7 +159,7 @@ public int BinarySearch(int[] array,int targetValue){
     int low = 0;
     int high = array.Length - 1;
     while(low <= high){
-        int mid = low + (high - low) >> 1;
+        int mid = low + ((high - low) >> 1);
         if(array[mid] > targetValue)
             high = mid - 1;
         else if(array[mid] < targetValue)
@@ -183,7 +183,7 @@ public int BinarySearchBeautiful(int[] array,int targetValue){
 	int low = 0;
     int high = array.Length -1;
     while(low <= high){
-        int mid = low + (high - low) >> 1;
+        int mid = low + ((high - low) >> 1);
         if(array[mid] >= value){
             high = mid - 1;
         }else{
@@ -204,7 +204,7 @@ public int BinarySearch(int[] array, int targetValue){
     int low = 0;
     int high = array.Length - 1;
     while(low <= high){
-        int mid = low + (high - low) >> 1;
+        int mid = low + ((high - low) >> 1);
         if(array[mid] > targetValue)
             high = mid - 1;
         else if(array[mid] < targetValue)
@@ -232,7 +232,7 @@ public int BinarySearch(int[] array, int targetValue){
     int low = 0;
     int high = array.Length - 1;
     while(low <= high){
-        int mid = low + (high - low) >> 1;
+        int mid = low + ((high - low) >> 1);
         if(array[mid] >= targetValue){
             if(mid == 0 || array[mid - 1] < targetValue) return mid;
             else high = mid - 1;
@@ -253,7 +253,7 @@ public int BinarySearch(int[] array, int targetValue){
     int low = 0;
     int high = array.Length - 1;
     while(low <= high){
-        int mid = low + (high - low) >> 1;
+        int mid = low + ((high - low) >> 1);
         if(array[mid] <= targetValue){
             if(mid == array.Length - 1 || array[mid + 1] > targetValue){
                 return mid;

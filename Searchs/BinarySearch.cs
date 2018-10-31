@@ -40,5 +40,73 @@ namespace Searchs {
                 return SearchRecursivelyInternal (array, low, high, targetValue);
             }
         }
+
+        //变体1:查找第一个值等于给定值的元素
+        public int BinarySearch_Complex_One (int[] array, int targetValue) {
+            int low = 0;
+            int high = array.Length - 1;
+            while (low <= high) {
+                int mid = low + ((high - low) >> 1);
+                if (array[mid] > targetValue) {
+                    high = mid - 1;
+                } else if (array[mid] < targetValue) {
+                    low = mid + 1;
+                } else {
+                    if (mid == 0 || array[mid - 1] != targetValue) return mid;
+                    else high = mid - 1;
+                }
+            }
+            return -1;
+        }
+
+        //变体2: 查找最后一个值等于给定值的元素
+        public int BinarySearch_Complex_Two_Search_Last_GreaterTargetValue (int[] array, int targetValue) {
+            int low = 0;
+            int high = array.Length - 1;
+            while (low <= high) {
+                int mid = low + ((high - low) >> 1);
+                if (array[mid] > targetValue) {
+                    high = mid - 1;
+                } else if (array[mid] < targetValue) {
+                    low = mid + 1;
+                } else {
+                    if (mid == array.Length - 1 || array[mid + 1] != targetValue) return mid;
+                    else low = mid + 1;
+                }
+            }
+            return -1;
+        }
+
+        //变体3:查找第一个值大于等于给定值的元素
+        public int BinarySearch_Complex_Three_Search_First_GreaterAndEqualTargetValue (int[] array, int targetValue) {
+            int low = 0;
+            int high = array.Length - 1;
+            while (low <= high) {
+                int mid = low + ((high - low) >> 1);
+                if (array[mid] < targetValue) {
+                    low = mid + 1;
+                } else {
+                    if (mid == 0 || array[mid - 1] != targetValue) return mid;
+                    else high = mid - 1;
+                }
+            }
+            return -1;
+        }
+
+        //变体4:查找最后一个值小于等于给定值的元素
+        public int BinarySearch_Complex_Four_Search_Last_LessAndEqualTargetValue (int[] array, int targetValue) {
+            int low = 0;
+            int high = array.Length - 1;
+            while (low <= high) {
+                int mid = low + ((high - low) >> 1);
+                if (array[mid] > targetValue) {
+                    high = mid - 1;
+                } else {
+                    if (mid == array.Length - 1 || array[mid + 1] != targetValue) return mid;
+                    else low = mid + 1;
+                }
+            }
+            return -1;
+        }
     }
 }
