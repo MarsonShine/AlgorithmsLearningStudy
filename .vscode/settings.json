@@ -7,10 +7,6 @@
         {
             "name": "feature/Queue",
             "base": "develop"
-        },
-        {
-            "name": "feature/mergesort",
-            "base": "develop"
         }
     ]
 }

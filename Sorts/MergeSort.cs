@@ -40,7 +40,7 @@ namespace Sorts {
                 nend = end;
             }
 
-            while (nstart < nend) {
+            while (nstart <= nend) {
                 temp[k++] = array[nstart++];
             }
 
