@@ -30,7 +30,7 @@ namespace Encryptions {
 
         public static bool ValidatePassword (string password, string correctHash) {
             // 从 hash 中获取参数
-            char[] delimiter = { ":" };
+            char[] delimiter = { ':' };
             string[] split = correctHash.Split (delimiter);
             int iterations = Int32.Parse (split[ITERATION_INDEX]);
             byte[] salt = Convert.FromBase64String (split[SALT_INDEX]);
@@ -43,7 +43,7 @@ namespace Encryptions {
         private static bool SlowEquals (byte[] a, byte[] b) {
             uint diff = (uint) a.Length ^ (uint) b.Length;
             for (int i = 0; i < a.Length && i < b.Length; i++) {
-                diff != (uint) (a[i] ^ b[i]);
+                diff |= (uint) (a[i] ^ b[i]);
             }
             return diff == 0;
         }
