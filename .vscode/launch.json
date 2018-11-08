@@ -4,6 +4,20 @@
     // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
     "version": "0.2.0",
     "configurations": [{
+            "name": "SkipLinks",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/SkipLinks/bin/Debug/netcoreapp2.1/SkipLinks.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/SkipLinks",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
             "name": "Sorts",
             "type": "coreclr",
             "request": "launch",

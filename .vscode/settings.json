@@ -1,6 +1,5 @@
 {
-    "gitflow4code.features": [
-        {
+    "gitflow4code.features": [{
             "name": "feature/queues",
             "base": "develop"
         },
