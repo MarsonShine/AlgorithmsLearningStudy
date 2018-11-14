@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorts", "Sorts\Sorts.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searchs", "Searchs\Searchs.csproj", "{48A337AF-E09F-4A97-AEC1-A55C9B291C04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "Trees\Trees.csproj", "{164B7B84-38A3-4018-AD62-0FA722817CFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{48A337AF-E09F-4A97-AEC1-A55C9B291C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48A337AF-E09F-4A97-AEC1-A55C9B291C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48A337AF-E09F-4A97-AEC1-A55C9B291C04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{164B7B84-38A3-4018-AD62-0FA722817CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{164B7B84-38A3-4018-AD62-0FA722817CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{164B7B84-38A3-4018-AD62-0FA722817CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{164B7B84-38A3-4018-AD62-0FA722817CFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
