@@ -77,3 +77,117 @@ postOrder(r) = postOrder(r->right)->postOrder(r->left)->print r
 1. 所有的叶结点都出现在第k层或k-l层（层次最大的两层）。
 2. 对任一结点，如果其右子树的最大层次为L，则其左子树的最大层次为L或L+l。
 
+## 散列表与二叉树
+
+散列表的时间复杂度是 O(1)，比二叉树这种数据结构要高效得多，那为什么不用散列表来替代二叉树呢？
+
+有没有什么情况下是散列表无法做的，而二叉树可以做的？
+
+### 二叉查找树
+
+二叉查找树顾名思义，其就是用来快速查找的，不仅仅是快速查找，也能做到高效的删除数据与新增数据。
+
+首先理解二叉查找树有什么特点：
+
+**再树的任意一个结点，其左子树的每个结点的值永远小于右子树的任意结点的值。反过来，右子树的值都比左子树的值要大。**
+
+![](https://static001.geekbang.org/resource/image/f3/ae/f3bb11b6d4a18f95aa19e11f22b99bae.jpg)
+
+接着我们来看下是如何新增，查找，以及删除的
+
+**查找**：我们假设要查询 x 值，那么我们先从跟结点开始查其，如果这个值比跟结点小，那么就递归遍历左子树查找目标值，如果大于跟结点，则再右结点递归查找树，等于跟结点就返回这个值。
+
+我们用 C# 代码来表示这个查询过程：
+
+```c#
+public class BinarySearchTree {
+    public Node tree;
+    //二叉查找树查找元素
+    //因为二叉查找树左子树的元素都比根节点小，右子树的元素都比根节点的值大，且树种元素不存在重复值。
+    public Node Find(int data) {
+        Node p = tree;
+        while (p != null) {
+            if (data < p.Data) p = p.Left;	//如果小于根结点，则递归遍历左结点查找目标值
+            else if (data > p.Data) p = p.Right;//大于跟结点，遍历右子树递归查找值
+            else return p;//等于跟结点，返回即可
+        }
+        return null;
+    }
+}
+```
+
+**插入**：二叉查找树的插入过程与查找过程类似，从跟结点与插入的元素进行比较，大于则往右子树递归查找，如果找到为空的结点，即是插入的位置。如果小于则往左子树递归查找，知道查找子结点为空的位置插入。
+
+> 注意：这里会存在插入值相同的情况，插入过程有所不同。我们暂且不讨论这种情况（下同），后面会提到。
+
+```c#
+public void Insert(int data){
+    if(tree == null){
+        tree = new Node(data);
+        return;
+    }
+    Node p = tree;
+    while(p != null){
+        if(data > p.data){	//大于结点，右子树遍历查找位置
+            if(p.Right == null){
+                p.Right = new Node(data);
+                return;
+            }
+            p = p.Right
+        }else {
+            if(p.Left == null){
+                p.Left = new Node(data);
+                return;
+            }
+            p = p.Left;
+        }
+    }
+}
+```
+
+**删除**：删除操作比较复杂，针对要删除的结点，分为三种情况要处理。
+
+1. 如果要删除的结点不含子结点，这种情况比较简单，直接删除这个结点即可。怎么删？直接在其父结点上指向待删除的结点指针设置为 null 即可。
+2. 要删除的结点含一个子结点（左子结点或右子结点）。我们只需要更新父结点，把原本指向待删除结点的指针指向待删除结点的子结点。
+3. 要善书的结点包含两个子结点（左右子结点）。这就复杂了：
+   - 查找这个待删除结点的右子树的最小结点
+   - 把上一步找到的最小结点的值替换到待删除的结点上
+   - 再删除这个最小结点，因为最小结点肯定没有左子树。
+
+用 C# 代码表示：
+
+```c#
+public void Delete(int data){
+    if(tree == null) return;
+    Node p = tree;	//p 点为要删除的数据，初始化指向根结点
+    Node pp = null;
+    while(p != null && p.Data != data){
+        pp = p;
+        if(data > p.Data) p = p.Right;
+        else p = p.Left;
+    }
+    if(p == null) return;	//没有找到要删除的目标元素
+    //第一种情况：要删除的元素包含两个子结点
+    if(p.Left != null && p.Right != null){	//找右子树最小值
+        Node minP = p.Right;
+        Node minPP = p;	//minPP 表示 minP 父结点
+        while(minP.Left != null){
+            minPP = minP;
+            minP = minP.Left;
+        }
+        p.Data = minP.Data;	//讲查找的最小子树的值赋值给待删除结点
+        p = minP;//下面就变成了删除 minP
+        pp = minPP;
+    }
+    //删除的结点是叶子结点或是只有一个子结点
+    Node child; //p 的子结点
+    if(p.Left != null) child = p.Left;
+    else if(p.Right != null) child = p.Right;
+    else child = null;
+    
+    if(child == null) tree = child;//删除是跟结点
+    else if(pp.Left == p) pp.Left = child;
+    else pp.Right = child;
+}
+```
+
