@@ -63,3 +63,34 @@ var CustomerEvents = {
 
     }
 }
+
+function BuildJsonObj() {
+    var source = [{
+        menuId: 70,
+        x: 11
+    }, {
+        menuId: 8,
+        y: 22
+    }, {
+        menuId: 40,
+        x: 99
+    }, {
+        menuId: 70,
+        y: 22
+    }];
+    var temp = {};
+    for (let i = 0; i < source.length; i++) {
+        const item = source[i];
+        var sames = source.filter(it => it.menuId == item.menuId);
+        if (sames.length > 1) {
+            for (let j = 0; j < sames.length; j++) {
+                const it = sames[j];
+                Object.assign(temp, it); //把相同的menuId组合赋值到temp中
+                //删除
+                source.splice(source.indexOf(it), 1);
+            }
+        }
+    }
+    source.push(temp);
+    console.log(source);
+}
