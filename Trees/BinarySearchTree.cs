@@ -74,6 +74,24 @@ namespace Trees {
             else if (p.Left == p) pp.Left = child;
             else pp.Right = child;
         }
+
+        public Node FindMin() {
+            if (tree == null) return null;
+            Node p = tree;
+            while (p.Left != null) {
+                p = p.Left;
+            }
+            return p;
+        }
+
+        public Node FindMax() {
+            if (tree == null) return null;
+            Node p = tree;
+            while (p.Right != null) {
+                p = p.Right;
+            }
+            return p;
+        }
     }
 
     public class Node {
