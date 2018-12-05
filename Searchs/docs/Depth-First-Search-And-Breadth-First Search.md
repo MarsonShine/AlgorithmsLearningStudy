@@ -37,6 +37,61 @@ public class Graph {
 
 其实就像是 “地毯式” 搜索的层层递进的搜索方式，先查离起始点最近的，然后是次近的，依次往外搜索。
 
+![](https://static001.geekbang.org/resource/image/00/ea/002e9e54fb0d4dbf5462226d946fa1ea.jpg)
 
+```c#
+/// <summary>
+/// 广度优先搜索算法
+/// 求从 s 顶点到 t 顶点的最短举例
+/// </summary>
+/// <param name="s">起始顶点</param>
+/// <param name="t">终止顶点</param>
+public void BFS(int s, int t) {
+    if (s == t) return;
+    bool[] visited = new bool[v];
+    visited[s] = true;
+    Queue<int> queue = new Queue<int>();
+    queue.Enqueue(s);
+    int[] prev = new int[v];
+    for (int i = 0; i < v; ++i) {
+        prev[i] = -1;
+    }
+    while (queue.Count != 0) {
+        int w = queue.Dequeue();
+        for (int i = 0; i < adjs[w].Count; i++) {
+            int q = adjs[w][i];
+            if (!visited[q]) {	//判断 q 顶点是否被访问过
+                prev[q] = w;	//没有访问过，说明 q 结点是通过顶点 w 遍历过来的
+                if (q == t) {
+                    Print(prev, s, t);
+                    return;
+                }
+                visited[q] = true;
+                queue.Enqueue(q);
+            }
+        }
+    }
+}
+```
+
+这里有三个重要的辅助变量 visited、queue、prev 很重要。
+
+1. visited 是用来记录已经被访问的顶点，用来避免顶点被重复访问。一旦被访问，设置visited[q] 为true
+2. queue 是一个队列，存储已经被访问，但相连的顶点还没有被访问的顶点。广度优先搜索是逐层访问的。也就是说，只有当访问顶点 k 时，才能继续遍历访问顶点 k+1。当我们访问顶点 k 时需要把访问的顶点记录下来，这样才能通过第 k 层顶点来找 k+1 层的顶点
+3. prev 用来记录搜索路径，从顶点 s 开始，广度优先搜索到顶点 t 的路径。只不过顺序时反向存储的。prev[w] 存储的是，顶点 w 是从那个前驱顶点遍历访问过来的。比如，我们通过顶点 2 的邻接表访问到的顶点 3，那么 prev[3]=2。
+
+流程图如下：
+
+![](https://static001.geekbang.org/resource/image/ea/23/ea00f376d445225a304de4531dd82723.jpg)
+
+![](https://static001.geekbang.org/resource/image/ea/23/ea00f376d445225a304de4531dd82723.jpg)
+
+![](https://static001.geekbang.org/resource/image/4c/39/4cd192d4c220cc9ac8049fd3547dba39.jpg)
+
+时间复杂度分析：
+
+最坏情况下，终点 t 离起始点 s 很远，要遍历所有顶点才能找得到。这个时候，每个顶点都要进出一遍队列，每个边也都会被访问一次，所以，广度优先搜索的时间复杂度为 O(V+E)，其中 V 表示顶点个数，E 表示边的个数。对于一个连通图来看，一个图中的所有顶点都是相通的，E 肯定要大于等于 V-1，所以广度优先搜索时间复杂度就为 O(E)。
+
+而空间复杂度主要消耗前面所讲的三个辅助变量。这三个存储空间的大小都不会超过顶点的个数，所以空间复杂度为O(E)。
 
 ## 深度优先搜索（DFS）
