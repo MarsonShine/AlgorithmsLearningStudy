@@ -95,3 +95,53 @@ public void BFS(int s, int t) {
 而空间复杂度主要消耗前面所讲的三个辅助变量。这三个存储空间的大小都不会超过顶点的个数，所以空间复杂度为O(E)。
 
 ## 深度优先搜索（DFS）
+
+深度优先算法（Depth-First-Search），简称 DFS。最直观的例子就是 “走迷宫”。
+
+假设你站在迷宫的某个岔路口，然后想找到出口。你愿意选择一个岔路口来走，走着走着发现走不通的时候，就会往回走到上一个路口并重新选择另一个路口，直到最终找到出口。这种走法就是深度优先搜索。
+
+我们用图来表示从其实顶点 s 深度优先算法搜寻到 终点 t。其中实线箭头表示遍历，虚线箭头表示回退。
+
+![](https://static001.geekbang.org/resource/image/87/85/8778201ce6ff7037c0b3f26b83efba85.jpg)
+
+从图中可以看出，深度优先遍历出来的从起始点 s 到终点 t 出来的路径不是最短路径。实际上深度优先搜索算法用到的是 “回溯思想”。这种思想非常适合用递归来实现。深度优先搜索代码实现也用到了 prev，visited，以及 print() 函数，还有个比较特殊变量 found，它的作用是，当我们已经找到终点 t 之后，我们就不再递归继续查找了。
+
+```c#
+public bool found = false; //全局变量或者类成员变量，true 就说明找到顶点 t，不在继续遍历
+/// <summary>
+/// 深度优先算法
+/// 求从 s 顶点到 t 顶点的路径（不是最短路径）
+/// </summary>
+/// <param name="s">起始地点</param>
+/// <param name="t">终止顶点</param>
+public void DFS(int s, int t) {
+    found = false;
+    bool[] visited = new bool[v]; //表示该顶点是否被访问
+    int[] prev = new int[v]; //表示遍历到的顶点路径
+    for (var i = 0; i < v; i++)
+        prev[i] = -1; //初始化
+    RecurisonDfs(s, t, visited, prev);
+}
+
+private void RecurisonDfs(int w, int t, bool[] visited, int[] prev) {
+    if (found == true) return;
+    visited[w] = true;
+    if (w == t) {
+        found = true;
+        return;
+    }
+    for (int i = 0; i < adjs[w].Count; i++) {
+        int q = adjs[w][i];
+        if (!visited[q]) {
+            prev[q] = w;
+            RecurisonDfs(q, t, visited, prev);
+        }
+    }
+}
+```
+
+时间复杂度分析：
+
+时间复杂度：从之前的分析可知，每条边最多会被访问两次，一次是遍历，一次是回退。所以根据广度优先搜索算法的分析可知，深度优先算法的时间复杂度就是 O(E)，E 是边的个数。
+
+空间复杂度：由刚刚的分析可知，空间消耗主要在三个变量以及递归。visited 以及 prev 数组的大小与顶点个数成正比，递归调用栈递归的最大深度不会超过顶点的个数，所以总的空间复杂度是 O(V)。

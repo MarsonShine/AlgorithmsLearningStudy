@@ -54,6 +54,38 @@ namespace Searchs {
             }
         }
 
+        public bool found = false; //全局变量或者类成员变量，true 就说明找到顶点 t，不在继续遍历
+        /// <summary>
+        /// 深度优先算法
+        /// 求从 s 顶点到 t 顶点的路径（不是最短路径）
+        /// </summary>
+        /// <param name="s">起始地点</param>
+        /// <param name="t">终止顶点</param>
+        public void DFS(int s, int t) {
+            found = false;
+            bool[] visited = new bool[v]; //表示该顶点是否被访问
+            int[] prev = new int[v]; //表示遍历到的顶点路径
+            for (var i = 0; i < v; i++)
+                prev[i] = -1; //初始化
+            RecurisonDfs(s, t, visited, prev);
+        }
+
+        private void RecurisonDfs(int w, int t, bool[] visited, int[] prev) {
+            if (found == true) return;
+            visited[w] = true;
+            if (w == t) {
+                found = true;
+                return;
+            }
+            for (int i = 0; i < adjs[w].Count; i++) {
+                int q = adjs[w][i];
+                if (!visited[q]) {
+                    prev[q] = w;
+                    RecurisonDfs(q, t, visited, prev);
+                }
+            }
+        }
+
         private void Print(int[] prev, int s, int t) {
             if (prev[t] != -1 && t != s) {
                 Print(prev, s, t);
