@@ -76,6 +76,48 @@ BM 算法在匹配模式串时不同于之前的都是从前往后匹配，而�
 
 ## BM 算法的代码实现
 
+“坏字符串” 不难理解，当遇到坏字符串时候，我们如何快速从模式串中找到坏字符串的位置呢？如果是循环模式串的话，那太低效了。有什么办法能提高查找对应字符的速度吗？其实我们能用一个哈希表来把模式串中的字符出现的位置都记下来，这样遇到坏字符串查对应的位置算法是 O(1) 的。
+
+关于这个散列表我们只实现一种最简单的情况，假设字符串的字符集不大，每个字符长度都只有 1 字节，我们用 256 的数组来记录每个字符在模式串出现的位置。数组的下标对应字符的 ASCII 码值，数组存储的值就是字符在模式串出现的位置。
+
+![](https://static001.geekbang.org/resource/image/bf/02/bf78f8a0506e069fa318f36c42a95e02.jpg)
+
+对应的代码就是下面的代码片段。其中，变量 b 是模式串，bc 就是散列表
+
+```c#
+private const int SIZE = 256；
+private void GenerateBC(string b, int[] bc) {
+    for (int i = 0; i < SIZE; i++) {
+        bc[i] = -1; //初始化散列表
+    }
+    for (int i = 0; i < b.Length; i++) {
+        int ascii = (int) b[i];
+        bc[ascii] = i; //出现的字符转成对应的ASCII码作为下标记录在模式串出现的位置
+    }
+}
+```
+
+散列表写好之后，我们先把 BM 算法大框架搭好，先只考虑坏字符规则，不考虑 si-xi 计算出来的移动位置为负的情况。
+
+```c#
+public void BoyerMoore(string a, string b) {
+    int[] bc = new int[SIZE]; //记录模式串中每个字符最后出现的位置
+    GenerateBC(b, bc); //构建坏字符串哈希表
+    int i = 0; //表示主串与模式串对齐的第一个字符
+    while (i <= a.Length - b.Length) {
+        int j;
+        for (int j = b.Length - 1; j >= 0; j--) { //模式串从后往前匹配
+            if (a[i + j] != b[j]) break; //坏字符串对应模式串中的下标是 j
+        }
+        if (j < 0)
+            return i;
+        //将模式串后移动j-bc[(int)a[i+j]]位
+        i = i + (j - bc[(int) a[i + j]]);
+    }
+    return -1;
+}
+```
+
 
 
 [BM算法资料1]: http://www.cs.jhu.edu/~langmea/resources/lecture_notes/boyer_moore.pdf
