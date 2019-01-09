@@ -190,4 +190,3 @@ public void Delete(int data){
     else pp.Right = child;
 }
 ```
-
