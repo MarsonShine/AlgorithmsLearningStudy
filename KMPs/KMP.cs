@@ -18,7 +18,19 @@ namespace KMPs {
         }
 
         private static int[] GetNexts(string matchString) {
-            throw new NotImplementedException();
+            int[] nexts = new int[matchString.Length];
+            nexts[0] = -1;
+            int k = -1;
+            for (int i = 1; i < matchString.Length; i++) {
+                while (k != -1 && matchString[k + 1] != matchString[i]) {
+                    k = nexts[k];
+                }
+                if (matchString[k + 1] == matchString[i]) {
+                    ++k;
+                }
+                nexts[i] = k;
+            }
+            return nexts;
         }
     }
 }
