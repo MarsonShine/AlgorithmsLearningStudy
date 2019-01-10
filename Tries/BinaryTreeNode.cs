@@ -5,4 +5,9 @@ namespace Tries {
         public BinaryTreeNode Right { get; set; }
 
     }
+
+    class TrieNode {
+        char Data { get; set; }
+        TrieNode[] Children { get; set; }
+    }
 }
