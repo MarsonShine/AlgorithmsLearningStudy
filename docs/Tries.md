@@ -44,3 +44,77 @@ public class BinaryTreeNode {
 
 ![img](https://static001.geekbang.org/resource/image/f5/35/f5a4a9cb7f0fe9dcfbf29eb1e5da6d35.jpg)
 
+假设我们的字符串中只有 a 到 z 这 26 个小写字母，我们在数组中下标为 0  的位置，存字符 a 的指针，下标 1 的位置存储 b 的指针，依次类推。如果某个字符的子结点不存在，我们在对应的下标的存储值为 null。
+
+```c#
+class TrieNode {
+    char data;
+    TrieNode children[26];
+}
+```
+
+当查找字符串时，我们就可以通过字符 ASCII 码减去 “a” 的 ASCII 码，就能迅速找到匹配的位置。比如，d 的 ASCII 码减去 a 的 ASCII 码就是 3，那么子结点 d 的指针就存在数组中下标为 3 的位置。
+
+```c#
+public class Trie {
+    private TrieNode root = new TrieNote('/');	//存储无意义字符
+    //往 Trie 树中插入一个字符串
+    private void Insert(string text) {
+        TrieNode p = root;
+        for (int i = 0; i < text.Length; i++) {
+            int index = text[i] - 'a';
+            if (p.Children[index] == null) {
+                TrieNode newNode = new TrieNode(text[i]);
+                p.Children[index] = newNode;
+            }
+            p = p.Children[index];
+        }
+        p.IsEndingChar = true;
+    }
+
+    public bool Find(string pattern) {
+        TrieNode p = root;
+        for (int i = 0; i < pattern.Length; i++) {
+            int index = pattern[i] - 'a';
+            if (p.Children[index] == null) {
+                return false;
+            }
+            p = p.Children[index];
+        }
+        if (p.IsEndingChar == false) return false;
+        else return true; //找到 pattern
+    }
+}
+```
+
+# 时间复杂度分析
+
+如果要在一组数据中频繁的查询目标字符串，这是非常高效的。构建 Trie 树的过程需要遍历整个字符串，所以时间复杂度时 O(n)（n 是字符串的长度之和）。但是一旦构建成功之后，后续的操作就会非常高效。
+
+查找目标字符串时，假设我们查询的字符串长度是 k，那么我们最多只需要查询 k 个结点即可。也就是说，查询目标字符串与源字符串长度没关系，只与目标字符串长度 k 有关系。即查询出来的字符串时间复杂是 O(k)。
+
+# 空间复杂度分析
+
+我们知道 Trie 树在匹配字符串时，会额外申请一个数组变量，就像我们之前讨论的匹配算法，会有长度为 26 的字符数组，每个字符存储的是 4/8 字节（视平台而定，32 位 4 字节，64 位 8 字节）。而且即便是一个只有很少的子结点，远小于 26 个，比如 1，2 个，我们也要维护长度为 26 个的数组。
+
+我们前面讲过，Trie 树的本质就是**避免存储相同元素前缀子串**，但是现在每一个字符的存储都远远大于 1 字节。按照我们上面说的例子，假设长度为 26，每个元素为 8 个字节，那么每个结点总共就会额外需要 26 * 8 个字节。这还只是在理想情况下的只含有这 26 个字符。
+
+如果字符串不止这些字符，还有大小写，数字甚至是中文，那存储的空间更多了。所以在这种情况，Trie 树并不能节省空间。在前缀重复不多的情况，Trie 不但不能节省内存，还有可能浪费更多内存。
+
+当然，那么有没有优化的解决方案呢？我们可以将每个结点的数组结构换成其它的数据结构，来存储一个结点的子结点指针。比如有序数组，跳表，散列表，红黑树等。
+
+比如我们用有序数组，数组中的指针按照字符所指向的子结点中的字符大小顺序排序。查询的时候我们可以用二分法快速定位某个字符的位置。但是插入的时候，为了保持有序型，就比较慢了。
+
+其它的数据结构也是如此分析。
+
+也有其它方案来优化内存，就是**缩点优化**，有兴趣的可以了解一下。
+
+# Trie 树与散列表，红黑树的比较
+
+Trie 树适用情况很严格：
+
+1. 字符串包含的字符集不能太大。如果太大，那存储的空间就会可能浪费很多。即便可以优化，也增加编码的难度，付出牺牲查询、插入效率的代价。
+
+2. 要求字符串前缀重复要多，不然空间存储浪费严重。
+3. 如果要用 Trie 树解决问题，就要自己实现一个工业级别的 Trie 树，这个很难。
+4. 我们知道，通过指针串起来是对内存地址不友好的，不连续的，所以在性能上会大打折扣。

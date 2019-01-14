@@ -6,8 +6,12 @@ namespace Tries {
 
     }
 
-    class TrieNode {
-        char Data { get; set; }
-        TrieNode[] Children { get; set; }
+    public class TrieNode {
+        public TrieNode(char ch) {
+            Data = ch;
+        }
+        public char Data { get; set; }
+        public TrieNode[] Children { get; set; }
+        public bool IsEndingChar { get; set; }
     }
 }
