@@ -7,6 +7,12 @@ namespace DynamicProgramming {
     class Program {
         static void Main(string[] args) {
             Console.WriteLine("Hello World!");
+
+            Compare c = new Compare();
+            // c.BackTrackingAvoidRepeatCalculate(0, 0);
+            // c.DynamicProgramming();
+            c.DynamicProgrammingAdvance();
+            Console.ReadLine();
         }
     }
 }
