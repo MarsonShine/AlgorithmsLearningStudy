@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tries", "Tries\Tries.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackTrackings", "BackTrackings\BackTrackings.csproj", "{0E8EFD49-184E-4B45-AC05-90DAAC9560E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicProgramming", "DynamicProgramming\DynamicProgramming.csproj", "{01FA1150-1D75-4628-BD39-14AB38EA9531}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{0E8EFD49-184E-4B45-AC05-90DAAC9560E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E8EFD49-184E-4B45-AC05-90DAAC9560E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E8EFD49-184E-4B45-AC05-90DAAC9560E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01FA1150-1D75-4628-BD39-14AB38EA9531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01FA1150-1D75-4628-BD39-14AB38EA9531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01FA1150-1D75-4628-BD39-14AB38EA9531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01FA1150-1D75-4628-BD39-14AB38EA9531}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
