@@ -10,8 +10,8 @@ namespace AhoCorasikes {
         public void BuildFailurePointer() {
             Queue<AcNode> queue = new Queue<AcNode>();
             root.fail = null;
-            queue.Enqueue(queue);
-            while (!queue.Count == 0) {
+            queue.Enqueue(root);
+            while (!(queue.Count == 0)) {
                 AcNode p = queue.Dequeue();
                 for (int i = 0; i < 26; ++i) {
                     AcNode pc = p.children[i];

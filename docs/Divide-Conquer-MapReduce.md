@@ -23,3 +23,57 @@ MapReduce 在 Google 大数据处理的三驾马车之一，另外两个时 GFS 
 
 ## 分治算法应用场景举例
 
+如何用分治算法求得一组数据的有序度和逆序度呢？我们在讲排序算法的时候，提到过有序度和逆序度的概念，也知道在完全有序下的一组数据的有序度时 n(n-1)/2，逆序度是 0。完全逆序的一组数据，则反过来，逆序度是 n(n-1)/2，有序度是 0。
+
+最先想到的是，我们直接从遍历这一组数据，然后拿它与后面的数字一个个做比较。但是这样没比较一个数据就要比较 n 次，有 n 个数组，那么时间复杂度就是 O(n*n)。效率非常低下，那有没有更高效的方法呢？
+
+我们就可以用分治算法来解决这个问题。我们可以将这组数组拆分成前后两个数组 A1 和 A2，分别计算 A1 和 A2 的逆序度对个数 K1 和 K2，然后在计算 A1 和 A2 之间的逆序对个数 K3。那么这个数组的逆序度对个数就是 K1+K2+K3。
+
+我们前面讲过，合并的时候，不能太耗时，否则就起不了降低时间复杂度的作用了。那么我们如何快速的计算 A1 和 A2 之间的逆序度对个数呢？
+
+这里就要借助归并排序了。
+
+归并排序中有一个非常关键的操作，就是将两个有序的小数组，合并成一个有序的数组。实际上，在这个归并的过程中，我们就可以计算出这两个数组的逆序对个数了。每次合并操作，我们就计算逆序对个数，把这些计算出来的逆序对个数求和，就是这个数组的逆序对个数。
+
+![img](https://static001.geekbang.org/resource/image/e8/32/e835cab502bec3ebebab92381c667532.jpg)
+
+尽管我画了一张图来解释，但是我个人觉得，但是还是用代码更好理解：
+
+```c#
+private int num = 0; //全局变量或者成员变量
+public int Count(int[] a, int n) {
+    num = 0;
+    MergeSortCounting(a, 0, n - 1);
+    return num;
+}
+
+private void MergeSortCounting(int[] a, int p, int r) {
+    if (p >= r) return;
+    int q = (p + r) / 2;
+    MergeSortCounting(a, p, q);
+    MergeSortCounting(a, q + 1, r);
+    Merge(a, p, q, r);
+}
+private void Merge(int[] a, int p, int q, int r) {
+    int i = p, j = q + 1, k = 0;
+    int[] tmp = new int[r - p + 1];
+    while (i <= q && j <= r) {
+        if (a[i] <= a[j]) {
+            tmp[k++] = a[i++];
+        } else {
+            num += (q - i + 1); //统计 p-q 之间，比a[j]大的元素个数
+            tmp[k++] = a[j++];
+        }
+    }
+    while (i <= q) { //处理剩下的
+        tmp[k++] = a[i++];
+    }
+    while (j <= r) { //处理剩下的
+        tmp[k++] = a[j++];
+    }
+    for (int i = 0; i <= r - p; i++) { //从tmp拷贝回a
+        a[p + i] = tmp[i];
+    }
+}
+```
+
