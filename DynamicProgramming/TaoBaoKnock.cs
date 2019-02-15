@@ -17,13 +17,13 @@ namespace DynamicProgramming {
             states[0, 0] = true;
             states[0, prices[0]] = true;
             for (int i = 1; i < n; ++i) {
-                for (int j = 0; j <= 2 * condition; ++j) {
+                for (int k = 0; k <= 2 * condition; ++k) {
                     //不购买第i个商品
-                    if (states[i - 1, j] == true) states[i, j] = states[i - 1, j];
+                    if (states[i - 1, k] == true) states[i, k] = states[i - 1, k];
                 }
                 //购买第i个商品
-                for (int j = 0; j <= 2 * condition - prices[i]; ++j) {
-                    if (states[i - 1, j] == true) states[i, j + prices[i]] = true;
+                for (int k = 0; k <= 2 * condition - prices[i]; ++k) {
+                    if (states[i - 1, k] == true) states[i, k + prices[i]] = true;
                 }
             }
 
