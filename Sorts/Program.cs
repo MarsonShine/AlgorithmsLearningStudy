@@ -44,6 +44,16 @@ namespace Sorts {
             TopologySort topology = new TopologySort();
             topology.TopologySortByKahn();
             Console.WriteLine("======拓扑排序======");
+
+            int[] datas = new int[] { 1, 2, 3, 3, 3, 4, 2, 0, 6, 9, 9, 4 };
+            int[] values = new int[10]; //max+1;
+            for (int i = 0; i < datas.Length; i++) {
+                values[datas[i]] = i;
+            }
+            for (int i = 0; i < values.Length; i++) {
+                Console.WriteLine(i + " : " + (values[i]) + " ");
+            }
+            Console.ReadLine();
         }
     }
 }
