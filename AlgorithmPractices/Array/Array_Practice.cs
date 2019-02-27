@@ -18,8 +18,8 @@ namespace AlgorithmPractices.Array {
         /// </summary>
         /// <param name="item"></param>
         public void Insert(T item) {
-            if (++_length == _capacity) Expand(_arrays);
-            _arrays[_length] = item;
+            if ((_length + 1) == _capacity) Expand(_arrays);
+            _arrays[_length++] = item;
         }
         public bool Remove() {
             if (_length == 0) return false;
@@ -29,7 +29,7 @@ namespace AlgorithmPractices.Array {
         public T Find(T item, Predicate<T> match) {
             if (item == null) return default;
             for (int i = 0; i < _length; ++i) {
-                if (match(item)) {
+                if (match(_arrays[i])) {
                     return _arrays[i];
                 }
             }
@@ -38,6 +38,7 @@ namespace AlgorithmPractices.Array {
 
         private void Expand(T[] arrays) {
             Resize(ref arrays, _capacity *= 2);
+            _arrays = arrays;
         }
         //合并两个有效数组为一个有效数组
         public T[] Concat(T[] ta, T[] tb) {
@@ -64,5 +65,6 @@ namespace AlgorithmPractices.Array {
 
         public T[] Values => _arrays;
         public int Length => _length;
+        public int Capacity => _capacity;
     }
 }
