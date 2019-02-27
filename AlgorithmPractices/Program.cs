@@ -6,6 +6,8 @@ namespace AlgorithmPractices {
     class Program {
         static void Main(string[] args) {
             Console.WriteLine("Hello World!");
+            LinkedList<int> list = new LinkedList<int>();
+
             Array_Test();
         }
 
