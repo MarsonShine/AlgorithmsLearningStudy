@@ -12,11 +12,22 @@ namespace AlgorithmPractices.LinkedLists {
         }
 
         public void InsertToTail(T item) {
-            var node = new SingleLinkedListNode<T>(item);
-            ++_count;
+            var newNode = new SingleLinkedListNode<T>(item);
+            if (_head == null)
+                InsertNodeToEmptyList(newNode);
+            else {
+                InsertToTail(newNode);
+            }
         }
-        public void InsertToTail(SingleLinkedListNode<T> node) {
-
+        public void InsertToTail(SingleLinkedListNode<T> newNode) {
+            var node = _head;
+            var tempNode = _head;
+            while (tempNode.Next != null) {
+                tempNode = tempNode.Next;
+            }
+            newNode.Next = tempNode.Next;
+            tempNode.Next = newNode;
+            ++_count;
         }
         public void InsertToHead(T item) {
             var node = new SingleLinkedListNode<T>(item);
@@ -45,13 +56,42 @@ namespace AlgorithmPractices.LinkedLists {
         public void AddBefore(SingleLinkedListNode<T> node, T item) {
 
         }
-        private void InsertNodeAfter(SingleLinkedListNode<T> node, SingleLinkedListNode<T> newNode) {
-            newNode.Next = node.Next;
+        public void Remove(SingleLinkedListNode<T> node) {
+            if (node == null || _head == null) return;
+            //删除的是否为头结点
+            if (node == _head) {
+                _head = node.Next;
+                return;
+            }
+            //找到node的上一个以及node的下一个
+            var tempNode = _head;
+            while (_head != null && tempNode.Next != node) {
+                tempNode = tempNode.Next;
+            }
+            if (tempNode == null) return;
+            tempNode.Next = tempNode.Next.Next;
         }
-        private void InsertNodeBefore(SingleLinkedListNode<T> node, SingleLinkedListNode<T> newNode) {
-            newNode.Next = node;
-            _head = newNode;
-            ++_count;
+
+        public SingleLinkedListNode<T> Reverse(SingleLinkedListNode<T> p) {
+            if (_head == null || _head.Next == null) return _head;
+            var head = new SingleLinkedListNode<T>(_head.Data);
+            head.Next = p;
+            var cur = p.Next;
+            p.Next = null;
+            SingleLinkedListNode<T> next = default;
+
+            while (cur != null) {
+                //把tmlHead恒定的插入到到第二个结点
+                next = cur.Next;
+                cur.Next = head.Next;
+                head.Next = cur;
+                cur = next;
+            }
+            //把头结点放到尾部
+            var hnext = head.Next;
+            head.Next = null;
+            head = hnext;
+            return head;
         }
 
         private void InsertNodeToEmptyList(SingleLinkedListNode<T> newNode) {
@@ -61,16 +101,5 @@ namespace AlgorithmPractices.LinkedLists {
 
         public SingleLinkedListNode<T> Head => _head; //头结点
         public int Count => _count;
-    }
-
-    public class SingleLinkedListNode<TNode> {
-        public SingleLinkedListNode(TNode node) {
-            Data = node;
-        }
-        public SingleLinkedListNode(TNode node, SingleLinkedListNode<TNode> next) : this(node) {
-            Next = next;
-        }
-        public TNode Data { get; set; }
-        public SingleLinkedListNode<TNode> Next { get; set; }
     }
 }

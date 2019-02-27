@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using AlgorithmPractices.Array;
+using AlgorithmPractices.LinkedLists;
 
 namespace AlgorithmPractices {
     class Program {
         static void Main(string[] args) {
             Console.WriteLine("Hello World!");
-            LinkedList<int> list = new LinkedList<int>();
-
+            SingleLinkedList<int> list = new SingleLinkedList<int>();
+            for (int i = 0; i < 4; i++) {
+                list.InsertToTail(i + 1);
+            }
+            list.Reverse(list.Head);
             Array_Test();
         }
 
