@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using AlgorithmPractices.Array;
 using AlgorithmPractices.LinkedLists;
@@ -13,6 +14,15 @@ namespace AlgorithmPractices {
             }
             list.Reverse(list.Head);
             Array_Test();
+
+            Merge_LinkedList_Test();
+            var q = new Person { Id = 1, Name = "marson" };
+            var p = q;
+            q = new Person { Id = 2, Name = "shine" };
+            Console.WriteLine(ReferenceEquals(p, q));
+            Console.WriteLine(q == p);
+            Console.WriteLine("q.hashCode=" + q.GetHashCode() + " p.hashCode=" + p.GetHashCode());
+
         }
 
         private static void Array_Test() {
@@ -35,9 +45,30 @@ namespace AlgorithmPractices {
             }
         }
 
-        class Person {
+        private static void Merge_LinkedList_Test() {
+            SingleLinkedList<Person> personsA = new SingleLinkedList<Person>(new Person());
+            for (int i = 1; i <= 10; i *= 2) {
+                personsA.InsertToTail(new Person { Id = i, Name = "name" + i });
+            }
+            SingleLinkedList<Person> personsB = new SingleLinkedList<Person>(new Person());
+            for (int i = 1; i <= 10; i = i * 2 + 1) {
+                personsB.InsertToTail(new Person { Id = i, Name = "name" + i });
+            }
+            SingleLinkedList<Person> merge = new SingleLinkedList<Person>(new Person());
+            var t = merge.MergeSortedList(personsA.Head, personsB.Head);
+        }
+
+        class Person : IComparer, IComparer<Person> {
             public int Id { get; set; }
             public string Name { get; set; }
+
+            public int Compare(Person x, Person y) {
+                return x.Id - y.Id;
+            }
+
+            public int Compare(object x, object y) {
+                return ((Person) x).Id - ((Person) y).Id;
+            }
         }
     }
 }

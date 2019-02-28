@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Globalization;
 
 namespace AlgorithmPractices.LinkedLists {
     //实现一个单链表支持增删操作
@@ -6,9 +8,17 @@ namespace AlgorithmPractices.LinkedLists {
         private int _capacity;
         private int _count;
         private SingleLinkedListNode<T> _head;
-        public SingleLinkedList() : this(20) { }
+        private IComparer comparer;
+        public SingleLinkedList() : this(20) {
+
+        }
         public SingleLinkedList(int capacity) {
             _capacity = capacity;
+            this.comparer = new Comparer(CultureInfo.CurrentCulture);
+        }
+
+        public SingleLinkedList(IComparer comparer) : this() {
+            if (comparer != null) this.comparer = comparer;
         }
 
         public void InsertToTail(T item) {
@@ -70,6 +80,41 @@ namespace AlgorithmPractices.LinkedLists {
             }
             if (tempNode == null) return;
             tempNode.Next = tempNode.Next.Next;
+        }
+
+        public SingleLinkedListNode<T> MergeSortedList(SingleLinkedListNode<T> a, SingleLinkedListNode<T> b) {
+            if (a == null) return b;
+            if (b == null) return a;
+            if (comparer == null) throw new InvalidOperationException("must be provide IComparer");
+            var p = a;
+            var q = b;
+            SingleLinkedListNode<T> mergeNode;
+            //比较头，来确定新合并之后的头结点
+            if (comparer.Compare(p.Data, q.Data) < 0) {
+                mergeNode = p;
+                p = p.Next;
+            } else {
+                mergeNode = q;
+                q = q.Next;
+            }
+            SingleLinkedListNode<T> r = mergeNode;
+            while (p != null && q != null) {
+                if (comparer.Compare(p.Data, q.Data) < 0) {
+                    r.Next = p;
+                    p = p.Next;
+                } else {
+                    r.Next = q;
+                    q = q.Next;
+                }
+                r = r.Next;
+            }
+            if (p != null) {
+                r.Next = p;
+            } else {
+                r.Next = q;
+            }
+            return mergeNode;
+
         }
 
         public SingleLinkedListNode<T> Reverse(SingleLinkedListNode<T> p) {
