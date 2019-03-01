@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using AlgorithmPractices.Array;
+using AlgorithmPractices.LeetCodes;
 using AlgorithmPractices.LinkedLists;
 
 namespace AlgorithmPractices {
@@ -23,6 +24,17 @@ namespace AlgorithmPractices {
             Console.WriteLine(q == p);
             Console.WriteLine("q.hashCode=" + q.GetHashCode() + " p.hashCode=" + p.GetHashCode());
 
+            var a = new ThreeSum(new int[] { 0, 1, 2, -1, -4 }).Sum(new int[] { 0, 1, 2, -1, -4 });
+            string str = "[";
+            foreach (var b in a) {
+                str += "[";
+                foreach (var c in b) {
+                    str += c + ",";
+                }
+                str += "],";
+            }
+            str += "]";
+            Console.WriteLine(str);
         }
 
         private static void Array_Test() {
