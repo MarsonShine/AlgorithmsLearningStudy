@@ -35,6 +35,11 @@ namespace AlgorithmPractices {
             }
             str += "]";
             Console.WriteLine(str);
+
+            // new TwoSum()._TwoSum(new [] { 2, 7, 11, 15 }, 9);
+            new TwoSum().__TwoSum(new [] { 3, 2, 4 }, 6);
+            new _MajorityElement().MajorityElement(new [] { 2, 2, 1, 1, 1, 2, 2 });
+            Console.WriteLine(new _FirstMissingPositive().FirstMissingPositive(new [] { 1, 2, 0 }));
         }
 
         private static void Array_Test() {
