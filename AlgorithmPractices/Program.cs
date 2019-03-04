@@ -40,6 +40,15 @@ namespace AlgorithmPractices {
             new TwoSum().__TwoSum(new [] { 3, 2, 4 }, 6);
             new _MajorityElement().MajorityElement(new [] { 2, 2, 1, 1, 1, 2, 2 });
             Console.WriteLine(new _FirstMissingPositive().FirstMissingPositive(new [] { 1, 2, 0 }));
+
+            var nodes = new SingleLinkedList<int>();
+            var n = new SingleLinkedListNode<int>(0);
+            nodes.InsertToHead(new SingleLinkedListNode<int>(3));
+            nodes.InsertToTail(new SingleLinkedListNode<int>(2));
+            nodes.InsertToTail(n);
+            nodes.InsertToTail(new SingleLinkedListNode<int>(-4));
+            // var n = new SingleLinkedListNode<int>(1);
+            nodes.HasCycle(nodes.Head);
         }
 
         private static void Array_Test() {

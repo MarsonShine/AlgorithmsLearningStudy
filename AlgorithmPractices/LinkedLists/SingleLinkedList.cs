@@ -138,16 +138,15 @@ namespace AlgorithmPractices.LinkedLists {
             head = hnext;
             return head;
         }
-        public bool HasCycle(SingleLinkedListNode<T> node) {
-            if (_head == null) return false;
-            //如果只有一个头结点
-            if (_head.Next == _head) return node == _head;
-            SingleLinkedListNode<T> head = _head;
-            SingleLinkedListNode<T> n = _head.Next;
-            while (head.Next != null) {
-                n = head.Next.Next;
-                head = head.Next;
-                if (head == n) return true;
+        //用快慢指针，遍历同一个节点，如果快慢指针相等，则说明有环
+        public bool HasCycle(SingleLinkedListNode<T> head) {
+            if (head == null) return false;
+            SingleLinkedListNode<T> fast = head.Next.Next;
+            SingleLinkedListNode<T> slow = head.Next;
+            while (fast != null && fast.Next != null) {
+                fast = fast.Next.Next;
+                slow = slow.Next;
+                if (slow == fast) return true;
             }
             return false;
         }
