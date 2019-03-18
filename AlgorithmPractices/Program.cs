@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AlgorithmPractices.Array;
 using AlgorithmPractices.LeetCodes;
 using AlgorithmPractices.LinkedLists;
+using AlgorithmPractices.Stacks;
 
 namespace AlgorithmPractices {
     class Program {
@@ -49,6 +50,15 @@ namespace AlgorithmPractices {
             nodes.InsertToTail(new SingleLinkedListNode<int>(-4));
             // var n = new SingleLinkedListNode<int>(1);
             nodes.HasCycle(nodes.Head);
+
+            var sequenceStack = new SequenceStack<string>(15);
+            for (int i = 0; i < 25; i++) {
+                sequenceStack.Push("数据内容" + (i + 1));
+            }
+            int count = sequenceStack.Length;
+            for (int i = 0; i < count; i++) {
+                Console.WriteLine(sequenceStack.Pop());
+            }
         }
 
         private static void Array_Test() {
