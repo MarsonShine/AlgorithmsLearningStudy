@@ -59,6 +59,11 @@ namespace AlgorithmPractices {
             for (int i = 0; i < count; i++) {
                 Console.WriteLine(sequenceStack.Pop());
             }
+
+            var linkedStack = new LinkedStack<string>(15);
+            for (int i = 0; i < 15; i++) {
+                linkedStack.Push("数据内容" + (i + 1));
+            }
         }
 
         private static void Array_Test() {
