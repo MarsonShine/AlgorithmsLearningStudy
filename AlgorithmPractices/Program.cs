@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AlgorithmPractices.Array;
 using AlgorithmPractices.LeetCodes;
 using AlgorithmPractices.LinkedLists;
+using AlgorithmPractices.Queues;
 using AlgorithmPractices.Stacks;
 
 namespace AlgorithmPractices {
@@ -64,6 +65,17 @@ namespace AlgorithmPractices {
             for (int i = 0; i < 15; i++) {
                 linkedStack.Push("数据内容" + (i + 1));
             }
+
+            var linkedQueue = new LinkedQueue<string>(5);
+            for (int i = 0; i < 5; i++) {
+                linkedQueue.Enqueue("数据内容" + i);
+                Console.WriteLine($"数据容量 capacity={linkedQueue.Capacity} 数据个数 length={linkedQueue.Length}");
+            }
+            for (int i = 0; i < 5; i++) {
+                linkedQueue.Dequeue();
+                Console.WriteLine($"数据容量 capacity={linkedQueue.Capacity} 数据个数 length={linkedQueue.Length}");
+            }
+
         }
 
         private static void Array_Test() {
