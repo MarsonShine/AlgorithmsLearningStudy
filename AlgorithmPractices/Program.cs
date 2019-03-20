@@ -75,7 +75,15 @@ namespace AlgorithmPractices {
                 linkedQueue.Dequeue();
                 Console.WriteLine($"数据容量 capacity={linkedQueue.Capacity} 数据个数 length={linkedQueue.Length}");
             }
-
+            var circle = new CircleQueue<string>(5);
+            for (int i = 0; i < 5; i++) {
+                circle.Enqueue("数据内容" + i);
+                Console.WriteLine($"数据容量 capacity={circle.Capacity} 数据个数 length={circle.Length}");
+            }
+            for (int i = 0; i < 5; i++) {
+                var c = circle.Dequeue();
+                Console.WriteLine($"数据容量 capacity={circle.Capacity} 数据个数 length={circle.Length}");
+            }
         }
 
         private static void Array_Test() {
