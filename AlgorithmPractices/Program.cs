@@ -5,6 +5,7 @@ using AlgorithmPractices.Array;
 using AlgorithmPractices.LeetCodes;
 using AlgorithmPractices.LinkedLists;
 using AlgorithmPractices.Queues;
+using AlgorithmPractices.Recursions;
 using AlgorithmPractices.Stacks;
 
 namespace AlgorithmPractices {
@@ -84,6 +85,11 @@ namespace AlgorithmPractices {
                 var c = circle.Dequeue();
                 Console.WriteLine($"数据容量 capacity={circle.Capacity} 数据个数 length={circle.Length}");
             }
+
+            Demonstrations demonstrations = new Demonstrations();
+            Console.WriteLine(demonstrations.FibRecursionTail(8, 0, 1));
+            Console.WriteLine(demonstrations.Factorial(8) + " 递归：" + demonstrations.FactorialRecursion(8) + " 尾递归：" + demonstrations.FactorialRecursionTail(8, 1));
+
         }
 
         private static void Array_Test() {
