@@ -2,18 +2,44 @@ using System;
 using System.Collections.Generic;
 
 namespace AlgorithmPractices.Sorts {
-    public class MergeSort<T> {
+    public class BigSort<T> {
         private IComparer<T> comparer;
-        public MergeSort() {
+        public BigSort() {
             comparer = Comparer<T>.Default;
         }
-        public void Sort(T[] sources) {
+        public void MergeSort(T[] sources) {
             MergeRecursion(sources, 0, sources.Length - 1);
         }
-        public void Sort(T[] sources, IComparer<T> comparer) {
+        public void MergeSort(T[] sources, IComparer<T> comparer) {
             this.comparer = comparer;
             MergeRecursion(sources, 0, sources.Length - 1);
         }
+        public void QuicklySort(T[] sources) => QuicklySortInternal(sources, 0, sources.Length - 1);
+
+        private void QuicklySortInternal(T[] sources, int start, int end) {
+            if (start >= end) return;
+            int q = Partition(sources, start, end);
+            QuicklySortInternal(sources, start, q - 1);
+            QuicklySortInternal(sources, q + 1, end);
+        }
+
+        private int Partition(T[] sources, int start, int end) {
+            T pivot = sources[end];
+            int i = start;
+            for (int j = 0; j < sources.Length; j++) {
+                if (comparer.Compare(sources[j], pivot) < 0) {
+                    T temp = sources[j];
+                    sources[i] = sources[j];
+                    sources[j] = temp;
+                    ++i;
+                }
+            }
+            T p = sources[i];
+            sources[i] = sources[end];
+            sources[end] = p;
+            return i;
+        }
+
         //拆分
         public void MergeRecursion(T[] sources, int index, int end) {
             if (index >= end) return;

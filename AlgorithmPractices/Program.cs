@@ -92,9 +92,9 @@ namespace AlgorithmPractices {
             Console.WriteLine(demonstrations.FibRecursionTail(8, 0, 1));
             Console.WriteLine(demonstrations.Factorial(8) + " 递归：" + demonstrations.FactorialRecursion(8) + " 尾递归：" + demonstrations.FactorialRecursionTail(8, 1));
 
-            MergeSort<int> merge = new MergeSort<int>();
+            BigSort<int> sort = new BigSort<int>();
             var source = new [] { 1, 2, 3, 6, 2, 4, 8, 0, 11, 2, 3, 6, 3, 1 };
-            merge.Sort(source);
+            sort.MergeSort(source);
             Console.WriteLine(source);
         }
 
