@@ -96,6 +96,9 @@ namespace AlgorithmPractices {
             var source = new [] { 1, 2, 3, 6, 2, 4, 8, 0, 11, 2, 3, 6, 3, 1 };
             sort.MergeSort(source);
             Console.WriteLine(source);
+            var sources = new [] { 4, 5, 6, 1, 2, 3 };
+            // sort.BublleSort(sources);
+            sort.BublleSortOptimize(sources);
         }
 
         private static void Array_Test() {

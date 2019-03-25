@@ -14,6 +14,35 @@ namespace AlgorithmPractices.Sorts {
             this.comparer = comparer;
             MergeRecursion(sources, 0, sources.Length - 1);
         }
+        public void BublleSort(T[] sources, IComparer<T> comparer = null) {
+            if (sources == null || sources.Length == 0) return;
+            if (comparer != null) this.comparer = comparer;
+            for (int i = 0; i < sources.Length; i++) {
+                for (int j = i + 1; j < sources.Length; j++) {
+                    T temp;
+                    if (this.comparer.Compare(sources[i], sources[j]) > 0) {
+                        temp = sources[i];
+                        sources[i] = sources[j];
+                        sources[j] = temp;
+                    }
+                }
+            }
+        }
+        public void BublleSortOptimize(T[] sources) {
+            if (sources == null || sources.Length == 0) return;
+            for (int i = 0; i < sources.Length; ++i) {
+                bool flag = false;
+                for (int j = 0; j < sources.Length - i - 1; ++j) {
+                    if (this.comparer.Compare(sources[j], sources[j + 1]) > 0) {
+                        T temp = sources[j];
+                        sources[j] = sources[j + 1];
+                        sources[j + 1] = temp;
+                        flag = true;
+                    }
+                    if (!flag) break;
+                }
+            }
+        }
         public void QuicklySort(T[] sources) => QuicklySortInternal(sources, 0, sources.Length - 1);
 
         private void QuicklySortInternal(T[] sources, int start, int end) {
