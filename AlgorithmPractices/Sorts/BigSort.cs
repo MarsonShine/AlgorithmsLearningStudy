@@ -50,6 +50,8 @@ namespace AlgorithmPractices.Sorts {
                 int j = i - 1;
                 for (; j >= 0; j--) {
                     if (comparer.Compare(sources[j], value) > 0) {
+                        //这里只进行了数据复制，没有数据交换，因为这样可以只做数据的移动，最后一次才把缓存的数据赋值给最后一个比较的数据，省去每次比较之后的值的替换
+                        //更高效
                         sources[j + 1] = sources[j];
                     } else break;
                 }
