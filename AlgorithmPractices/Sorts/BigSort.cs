@@ -43,6 +43,19 @@ namespace AlgorithmPractices.Sorts {
                 }
             }
         }
+        public void InsertionSort(T[] sources) {
+            if (sources == null || sources.Length == 0) return;
+            for (int i = 1; i < sources.Length; i++) {
+                var value = sources[i];
+                int j = i - 1;
+                for (; j >= 0; j--) {
+                    if (comparer.Compare(sources[j], value) > 0) {
+                        sources[j + 1] = sources[j];
+                    } else break;
+                }
+                sources[j + 1] = value;
+            }
+        }
         public void QuicklySort(T[] sources) => QuicklySortInternal(sources, 0, sources.Length - 1);
 
         private void QuicklySortInternal(T[] sources, int start, int end) {
