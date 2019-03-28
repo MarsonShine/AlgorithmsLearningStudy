@@ -58,6 +58,29 @@ namespace AlgorithmPractices.Sorts {
                 sources[j + 1] = value;
             }
         }
+        public void SelectionSort(T[] sources) {
+            if (sources == null || sources.Length == 0) return;
+            //i代表有序索引
+            for (int i = 0; i < sources.Length; i++) {
+                var min = sources[i];
+                var j = sources.Length - 1;
+                int minIndex = 0;
+                bool changeFlag = false;
+                while (j >= i) {
+                    if (comparer.Compare(sources[j], min) < 0) {
+                        min = sources[j];
+                        minIndex = j;
+                        changeFlag = true;
+                    }
+                    j--;
+                }
+                //交换
+                if (!changeFlag) continue;
+                var temp = sources[i];
+                sources[i] = min;
+                sources[minIndex] = temp;
+            }
+        }
         public void QuicklySort(T[] sources) => QuicklySortInternal(sources, 0, sources.Length - 1);
 
         private void QuicklySortInternal(T[] sources, int start, int end) {

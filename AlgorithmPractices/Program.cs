@@ -99,7 +99,8 @@ namespace AlgorithmPractices {
             var sources = new [] { 4, 5, 6, 1, 2, 3 };
             // sort.BublleSort(sources);
             // sort.BublleSortOptimize(sources);
-            sort.InsertionSort(sources);
+            // sort.InsertionSort(sources);
+            sort.SelectionSort(new [] { 1, 2, 3, 7, 1, 2, 3, 5, 6, 7, 10, 9, 6, 5, 4, 2 });
         }
 
         private static void Array_Test() {
