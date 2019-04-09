@@ -101,6 +101,10 @@ namespace AlgorithmPractices {
             // sort.BublleSortOptimize(sources);
             // sort.InsertionSort(sources);
             sort.SelectionSort(new [] { 1, 2, 3, 7, 1, 2, 3, 5, 6, 7, 10, 9, 6, 5, 4, 2 });
+
+            var sqrt = new SqrtX();
+            int sqrted = int.MaxValue;
+            Console.WriteLine($"{sqrted} 的平方根整数值为：{sqrt.Sqrt(sqrted)}");
         }
 
         private static void Array_Test() {
