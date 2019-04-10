@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AlgorithmPractices.Array;
+using AlgorithmPractices.HashLinkeds;
 using AlgorithmPractices.LeetCodes;
 using AlgorithmPractices.LinkedLists;
 using AlgorithmPractices.Queues;
@@ -105,6 +106,23 @@ namespace AlgorithmPractices {
             var sqrt = new SqrtX();
             int sqrted = int.MaxValue;
             Console.WriteLine($"{sqrted} 的平方根整数值为：{sqrt.Sqrt(sqrted)}");
+
+            LRUBaseLinkedHashTable<int, string> hashtables = new LRUBaseLinkedHashTable<int, string>(5);
+            //insert 
+            for (int i = 0; i < hashtables.Capacity; i++) {
+                hashtables.Add(i, "marson" + i);
+            }
+            //print
+            hashtables.Print();
+            Console.WriteLine();
+            //random visitor
+            var random = new Random((int) DateTime.Now.Ticks);
+            for (int i = 0; i < hashtables.Capacity; i++) {
+                var r = random.Next(0, 3);
+                var v = hashtables.GetValue(r);
+                Console.WriteLine($"visit key：{v}");
+                hashtables.Print();
+            }
         }
 
         private static void Array_Test() {
