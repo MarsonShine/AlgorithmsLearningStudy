@@ -8,6 +8,7 @@ using AlgorithmPractices.LeetCodes;
 using AlgorithmPractices.LinkedLists;
 using AlgorithmPractices.Queues;
 using AlgorithmPractices.Recursions;
+using AlgorithmPractices.Searches;
 using AlgorithmPractices.Sorts;
 using AlgorithmPractices.Stacks;
 
@@ -123,6 +124,11 @@ namespace AlgorithmPractices {
                 Console.WriteLine($"visit key：{v}");
                 hashtables.Print();
             }
+
+            ReverseString rs = new ReverseString();
+            var s = new [] { '\'', '\\', '{' };
+            rs.Reverse(s);
+            Console.WriteLine("Reverse:" + string.Join(' ', s));
         }
 
         private static void Array_Test() {
