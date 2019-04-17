@@ -11,6 +11,7 @@ using AlgorithmPractices.Recursions;
 using AlgorithmPractices.Searches;
 using AlgorithmPractices.Sorts;
 using AlgorithmPractices.Stacks;
+using AlgorithmPractices.Trees;
 
 namespace AlgorithmPractices {
     class Program {
@@ -129,6 +130,15 @@ namespace AlgorithmPractices {
             var s = new [] { '\'', '\\', '{' };
             rs.Reverse(s);
             Console.WriteLine("Reverse:" + string.Join(' ', s));
+
+            BinaryTree<int> bt = new BinaryTree<int>();
+            bt.Insert(16);
+            bt.Insert(14);
+            bt.Insert(20);
+            bt.Insert(18);
+            bt.Insert(19);
+            Console.WriteLine("找到的值：" + bt.Find(19).Value);
+
         }
 
         private static void Array_Test() {
