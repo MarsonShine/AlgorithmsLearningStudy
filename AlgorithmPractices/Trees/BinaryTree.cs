@@ -48,6 +48,41 @@ namespace AlgorithmPractices.Trees {
                 }
             }
         }
+        public bool Delete(T value) {
+            //删除某个节点，先找到这个节点
+            Node<T> p = root;
+            Node<T> pp = null;
+            while (p != null && comparer.Compare(p.Value, value) != 0) {
+                pp = p;
+                if (comparer.Compare(value, p.Value) > 0)
+                    p = p.Right;
+                else p = p.Left;
+            }
+            if (p == null) return false;
+            //如果找到的这个节点存在两个子节点
+            if (p.Left != null && p.Right != null) {
+                //找到最右节点的最小节点
+                Node<T> minP = p.Left;
+                Node<T> minPP = p;
+                while (minP.Left != null) {
+                    minPP = minP;
+                    minP = minP.Left;
+                }
+                p.Value = minP.Value;
+                p = minP;
+                pp = minPP;
+            }
+            //删除节点是叶子节点或者仅有一个子节点
+            Node<T> child; //p的子节点
+            if (p.Left != null) child = p.Left;
+            else if (p.Right != null) child = p.Right;
+            else child = null;
+
+            if (pp == null) root = child;
+            else if (pp.Left == p) pp.Left = child;
+            else pp.Right = child;
+            return true;
+        }
         public class Node<TData> {
             public Node<TData> Left;
             public Node<TData> Right;

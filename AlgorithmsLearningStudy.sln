@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicProgramming", "Dynam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasikes", "AhoCorasikes\AhoCorasikes.csproj", "{949F86EA-BA90-4288-92CC-9F46D8EF8417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapReduces", "MapReduces\MapReduces.csproj", "{F158A6DE-99CB-44FE-88B1-F3EE5E526AE7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

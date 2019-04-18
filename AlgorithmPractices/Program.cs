@@ -137,8 +137,10 @@ namespace AlgorithmPractices {
             bt.Insert(20);
             bt.Insert(18);
             bt.Insert(19);
+            bt.Insert(23);
             Console.WriteLine("找到的值：" + bt.Find(19).Value);
-
+            bt.Delete(20);
+            Console.WriteLine("删除含有两个子节点的节点");
         }
 
         private static void Array_Test() {
