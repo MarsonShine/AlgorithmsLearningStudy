@@ -83,6 +83,38 @@ namespace AlgorithmPractices.Trees {
             else pp.Right = child;
             return true;
         }
+
+        public Node<T> FindPrev(T value) {
+            if (root == null) return default;
+            var p = root;
+            Node<T> pp = null;
+            while (comparer.Compare(p.Value, value) != 0) {
+                if (comparer.Compare(p.Value, value) > 0) {
+                    pp = p;
+                    p = p.Left;
+                } else {
+                    pp = p;
+                    p = p.Right;
+                }
+            }
+            return pp;
+        }
+        public Node<T> Min() {
+            if (root == null) return default;
+            var p = root;
+            while (p.Left != null) {
+                p = p.Left;
+            }
+            return p;
+        }
+        public Node<T> Max() {
+            if (root == null) return default;
+            var p = root;
+            while (p.Right != null) {
+                p = p.Right;
+            }
+            return p;
+        }
         public class Node<TData> {
             public Node<TData> Left;
             public Node<TData> Right;
