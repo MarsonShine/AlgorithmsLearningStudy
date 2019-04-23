@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AlgorithmPractices.Array;
 using AlgorithmPractices.HashLinkeds;
+using AlgorithmPractices.Heads;
 using AlgorithmPractices.LeetCodes;
 using AlgorithmPractices.LinkedLists;
 using AlgorithmPractices.Queues;
@@ -141,6 +142,12 @@ namespace AlgorithmPractices {
             Console.WriteLine("找到的值：" + bt.Find(19).Value);
             bt.Delete(20);
             Console.WriteLine("删除含有两个子节点的节点");
+
+            HeadSort<int> hs = new HeadSort<int>();
+            Random rd = new Random((int) DateTime.Now.Ticks);
+            for (int i = 0; i < 10; i++) {
+                hs.Insert(rd.Next(100));
+            }
         }
 
         private static void Array_Test() {
