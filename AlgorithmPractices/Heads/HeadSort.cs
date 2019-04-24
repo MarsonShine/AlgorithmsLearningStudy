@@ -33,6 +33,22 @@ namespace AlgorithmPractices.Heads {
             if (comparer.Compare(sources[0], sources[1]) < 0) swap(0, 1);
             return true;
         }
+        private void BuildHeadipy() {
+            for (int i = position / 2; i > 0; i--) {
+                Headify(i);
+            }
+        }
+
+        private void Headify(int i) {
+            while (true) {
+                int max = 0;
+                if ((i * 2 + 1) <= position && comparer.Compare(sources[i], sources[i * 2 + 1]) < 0) max = i * 2 + 2;
+                if ((i * 2 + 2) <= position && comparer.Compare(sources[max], sources[i * 2 + 2]) < 0) max = i * 2 + 2;
+                if (i == max) break;
+                swap(i, max);
+                i = max;
+            }
+        }
 
         private void HeadifyByRemove() {
             if (position < 2) return;
