@@ -138,5 +138,69 @@ namespace DynamicProgramming {
             }
             return null;
         }
+        /// <summary>
+        /// 优化2：针对浮点数的计算，如果像 DPOptimistise 进位变为整数，那么在哪怕是线性的时间复杂度也会因为进位，进行倍数级的循环计算
+        /// 价格越大，耗时越长，性能越低。
+        /// 这个方法尝试将浮点数一分为二，整数级与小数级；如 12000.45，两位小数，那么最高数字即是 99，而整数部分则跟之前的整数动态规划求解一样
+        /// 额外在计算小数部分的值
+        /// 用二维数组来标记状态转移函数
+        /// </summary>
+        /// <param name="set"></param>
+        /// <param name="expectedAmount"></param>
+        /// <returns></returns>
+        public static List<OrdAmount> DPOptimistise2(OrdAmount[] set, decimal expectedAmount) {
+            bool[, ] states = new bool[(int) Math.Ceiling(expectedAmount) + 1, 100];
+            states[0, 0] = true;
+            if (set[0].Amount <= expectedAmount) {
+                states[set[0].CeilingAmount, set[0].DecimalsAmount] = true;
+            }
+            //整数部分
+            int expectedIntAmount = (int) Math.Ceiling(expectedAmount);
+            //小数部分
+            int expectedDecimalsIntAmount = (int) ((expectedAmount - expectedIntAmount) * 100);
+            for (int i = 0; i < set.Length; i++) {
+                for (int j = expectedIntAmount - set[i].CeilingAmount; j >= 0; --j) {
+                    //用整数以及小数运算
+                    int restDecimalsIntAmount = expectedDecimalsIntAmount - set[i].DecimalsAmount;
+                    if (restDecimalsIntAmount > 0) { //小数相减大于0 说明
+                        expectedDecimalsIntAmount = restDecimalsIntAmount;
+                    } else if (restDecimalsIntAmount < 0) { //小于0 整数借1 
+                        expectedDecimalsIntAmount = 100 - restDecimalsIntAmount;
+                        j = j - 1;
+                    } else {
+                        expectedDecimalsIntAmount = restDecimalsIntAmount;
+                        if (states[j, set[i].DecimalsAmount] == true) states[j + set[i].CeilingAmount, set[i].DecimalsAmount] = true;
+                    }
+                }
+                var result = new List<OrdAmount>();
+                var q = (int) Math.Ceiling(expectedAmount);
+                // for (var j = i; j >= 0; j--)
+                //     for (; q > 0;) {
+                //         if (states[q] == false) continue;
+                //         var s = set[i];
+                //         result.Add(s);
+                //         q -= set[i].VirAmount;
+                //         break;
+                //     }
+                return result;
+            }
+            return null;
+        }
+
+        public static void TailRecursive(List<OrdAmount> included, List<OrdAmount> notIncluded, List<OrdAmount> expected, decimal expectedAmount, decimal currentSum, int startIndex) {
+            for (var i = startIndex; i < notIncluded.Count; i++) {
+                if (expected.Count > 0) break;
+                var nextValue = notIncluded[i];
+                if (currentSum + nextValue.Amount == expectedAmount) {
+                    included.Add(nextValue);
+                    expected.AddRange(included);
+                    break;
+                } else if (currentSum + nextValue.Amount < expectedAmount) {
+                    included.Add(nextValue);
+                    notIncluded.Remove(nextValue);
+                    TailRecursive(included, notIncluded, expected, expectedAmount, currentSum + nextValue.Amount, i);
+                }
+            }
+        }
     }
 }
