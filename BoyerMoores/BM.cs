@@ -7,11 +7,11 @@ namespace BoyerMoores {
     public class BM {
         private const int SIZE = 256;
         /// <summary>
-        /// 生成一个散列表
+        /// 生成一个坏字符串散列表
         /// </summary>
         /// <param name="matchString">模式串</param>
         /// <param name="bc">散列表</param>
-        private void GenerateBC(string matchString, int[] bc) {
+        private void GenerateBadCharHashTable(string matchString, int[] bc) {
             for (int i = 0; i < SIZE; i++) {
                 bc[i] = -1; //初始化散列表
             }
@@ -27,7 +27,7 @@ namespace BoyerMoores {
         /// <param name="matchString">模式串</param>
         public int BoyerMoore(string mainString, string matchString) {
             int[] bc = new int[SIZE]; //记录模式串中每个字符最后出现的位置
-            GenerateBC(matchString, bc); //构建坏字符串哈希表
+            GenerateBadCharHashTable(matchString, bc); //构建坏字符串哈希表
             int[] suffix = new int[matchString.Length];
             bool[] prefix = new bool[matchString.Length];
             GenerateGC(mainString, matchString, suffix, prefix);
