@@ -197,9 +197,15 @@ private void GenerateGC(string mainString, string matchString, int[] suffix, boo
 
 ```
 
+## 延伸资料
 
+http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
+
+http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html
 
 [BM算法资料1]: http://www.cs.jhu.edu/~langmea/resources/lecture_notes/boyer_moore.pdf
+
+
 
 
 
