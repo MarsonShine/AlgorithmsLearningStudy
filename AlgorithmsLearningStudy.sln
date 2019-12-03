@@ -1,33 +1,49 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedLists", "LinkedLists\LinkedLists\LinkedLists.csproj", "{944B82DA-267D-450A-81EE-39E7B88CC0A8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stacks", "Stacks\Stacks.csproj", "{D35964EC-3983-4179-BCF0-BA2B8AB0F032}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queues", "Queues\Queues.csproj", "{B62B08E1-6E43-4974-AE47-759175BD1094}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queues", "Queues\Queues.csproj", "{B62B08E1-6E43-4974-AE47-759175BD1094}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursively", "Recursively\Recursively.csproj", "{26A9729F-7A4F-4F14-B897-AD7EA6ED0C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recursively", "Recursively\Recursively.csproj", "{26A9729F-7A4F-4F14-B897-AD7EA6ED0C38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorts", "Sorts\Sorts.csproj", "{9A278642-48D6-4916-9CC3-E68EC6D36DEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorts", "Sorts\Sorts.csproj", "{9A278642-48D6-4916-9CC3-E68EC6D36DEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searchs", "Searchs\Searchs.csproj", "{48A337AF-E09F-4A97-AEC1-A55C9B291C04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searchs", "Searchs\Searchs.csproj", "{48A337AF-E09F-4A97-AEC1-A55C9B291C04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "Trees\Trees.csproj", "{164B7B84-38A3-4018-AD62-0FA722817CFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trees", "Trees\Trees.csproj", "{164B7B84-38A3-4018-AD62-0FA722817CFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoyerMoores", "BoyerMoores\BoyerMoores.csproj", "{123EDC8C-B7CD-4AB3-AA4D-E90136D0236B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoyerMoores", "BoyerMoores\BoyerMoores.csproj", "{123EDC8C-B7CD-4AB3-AA4D-E90136D0236B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMPs", "KMPs\KMPs.csproj", "{85F63965-C7C7-4341-A872-540EFD152D73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KMPs", "KMPs\KMPs.csproj", "{85F63965-C7C7-4341-A872-540EFD152D73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tries", "Tries\Tries.csproj", "{388C339B-CE42-45BF-AD9B-D0D75C7CE6C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tries", "Tries\Tries.csproj", "{388C339B-CE42-45BF-AD9B-D0D75C7CE6C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackTrackings", "BackTrackings\BackTrackings.csproj", "{0E8EFD49-184E-4B45-AC05-90DAAC9560E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackTrackings", "BackTrackings\BackTrackings.csproj", "{0E8EFD49-184E-4B45-AC05-90DAAC9560E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicProgramming", "DynamicProgramming\DynamicProgramming.csproj", "{01FA1150-1D75-4628-BD39-14AB38EA9531}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicProgramming", "DynamicProgramming\DynamicProgramming.csproj", "{01FA1150-1D75-4628-BD39-14AB38EA9531}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhoCorasikes", "AhoCorasikes\AhoCorasikes.csproj", "{949F86EA-BA90-4288-92CC-9F46D8EF8417}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhoCorasikes", "AhoCorasikes\AhoCorasikes.csproj", "{949F86EA-BA90-4288-92CC-9F46D8EF8417}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgorithmPractices", "AlgorithmPractices\AlgorithmPractices.csproj", "{7A783B9C-0298-4F1B-B239-486B0C06EB4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitMaps", "BitMaps\BitMaps.csproj", "{2CB523CB-979D-4B90-B6CD-DC5944995409}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPlusTrees", "BPlusTrees\BPlusTrees.csproj", "{27ABCB5E-2055-47D1-8DF7-94231F5A6094}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Encryptions", "Encryptions\Encryptions.csproj", "{C85CC910-FC66-41FC-A68C-469E1C44AD6A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashTables", "HashTables\HashTables.csproj", "{80384390-8182-41F0-8B43-F5A83121AEF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maps", "Maps\Maps.csproj", "{07C985D7-0406-4CCD-A241-346114184730}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Util", "MS.Util\MS.Util.csproj", "{F0676AF1-CF95-4DD1-9BE4-D05D6545BD7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkipLinks", "SkipLinks\SkipLinks.csproj", "{C2EA7BFB-DC87-487D-9574-1B6D1D5B5F93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,10 +103,38 @@ Global
 		{949F86EA-BA90-4288-92CC-9F46D8EF8417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{949F86EA-BA90-4288-92CC-9F46D8EF8417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{949F86EA-BA90-4288-92CC-9F46D8EF8417}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F158A6DE-99CB-44FE-88B1-F3EE5E526AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F158A6DE-99CB-44FE-88B1-F3EE5E526AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F158A6DE-99CB-44FE-88B1-F3EE5E526AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F158A6DE-99CB-44FE-88B1-F3EE5E526AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A783B9C-0298-4F1B-B239-486B0C06EB4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A783B9C-0298-4F1B-B239-486B0C06EB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A783B9C-0298-4F1B-B239-486B0C06EB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A783B9C-0298-4F1B-B239-486B0C06EB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB523CB-979D-4B90-B6CD-DC5944995409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB523CB-979D-4B90-B6CD-DC5944995409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB523CB-979D-4B90-B6CD-DC5944995409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB523CB-979D-4B90-B6CD-DC5944995409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27ABCB5E-2055-47D1-8DF7-94231F5A6094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27ABCB5E-2055-47D1-8DF7-94231F5A6094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27ABCB5E-2055-47D1-8DF7-94231F5A6094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27ABCB5E-2055-47D1-8DF7-94231F5A6094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C85CC910-FC66-41FC-A68C-469E1C44AD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C85CC910-FC66-41FC-A68C-469E1C44AD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C85CC910-FC66-41FC-A68C-469E1C44AD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C85CC910-FC66-41FC-A68C-469E1C44AD6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80384390-8182-41F0-8B43-F5A83121AEF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80384390-8182-41F0-8B43-F5A83121AEF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80384390-8182-41F0-8B43-F5A83121AEF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80384390-8182-41F0-8B43-F5A83121AEF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C985D7-0406-4CCD-A241-346114184730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C985D7-0406-4CCD-A241-346114184730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C985D7-0406-4CCD-A241-346114184730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C985D7-0406-4CCD-A241-346114184730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0676AF1-CF95-4DD1-9BE4-D05D6545BD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0676AF1-CF95-4DD1-9BE4-D05D6545BD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0676AF1-CF95-4DD1-9BE4-D05D6545BD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0676AF1-CF95-4DD1-9BE4-D05D6545BD7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2EA7BFB-DC87-487D-9574-1B6D1D5B5F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2EA7BFB-DC87-487D-9574-1B6D1D5B5F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2EA7BFB-DC87-487D-9574-1B6D1D5B5F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2EA7BFB-DC87-487D-9574-1B6D1D5B5F93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
