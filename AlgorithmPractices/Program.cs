@@ -10,6 +10,7 @@ using AlgorithmPractices.LinkedLists;
 using AlgorithmPractices.Queues;
 using AlgorithmPractices.Recursions;
 using AlgorithmPractices.Searches;
+using AlgorithmPractices.SnowFlakes;
 using AlgorithmPractices.Sorts;
 using AlgorithmPractices.Stacks;
 using AlgorithmPractices.Trees;
@@ -18,6 +19,11 @@ namespace AlgorithmPractices {
     class Program {
         static void Main(string[] args) {
             Console.WriteLine("Hello World!");
+            #region 雪花算法生成ID
+            SnowflakeIdGenerator idGenerator = new SnowflakeIdGenerator();
+
+            #endregion
+
             SingleLinkedList<int> list = new SingleLinkedList<int>();
             for (int i = 0; i < 4; i++) {
                 list.InsertToTail(i + 1);
