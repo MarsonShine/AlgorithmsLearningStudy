@@ -32,6 +32,25 @@ namespace Trees {
             trees.Insert(66);
 
             trees.Delete(18);
+
+            var trees1 = new BinarySearchTree<int>();
+            trees1.Add(33);
+            trees1.Add(16);
+            trees1.Add(13);
+            trees1.Add(18);
+            trees1.Add(15);
+            trees1.Add(17);
+            trees1.Add(25);
+            trees1.Add(19);
+            trees1.Add(21);
+            trees1.Add(50);
+            trees1.Add(34);
+            trees1.Add(58);
+            trees1.Add(51);
+            trees1.Add(55);
+            trees1.Add(66);
+
+            trees1.Remove(13);
             Console.WriteLine("Hello World!");
         }
     }
