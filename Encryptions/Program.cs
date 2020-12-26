@@ -10,9 +10,9 @@ namespace Encryptions
             string key = "123456789qwertyu";
             var token = Encoding.UTF8.GetBytes(key);
             //byte[] key = new byte[] { }
-            var code = TotpAuthenticationService.GenerateCode(token).ToString("D6");
-
-            Console.WriteLine($"Hello World! {code}");
+            var code = TotpAuthenticationService.GenerateCode(token);
+            TotpAuthenticationService.ValidateCode(token, code);
+            Console.WriteLine($"Hello World! {code:D6}");
         }
     }
 }

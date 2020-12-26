@@ -19,7 +19,7 @@ namespace Encryptions
     public class TotpAuthenticationService
     {
         private static readonly DateTime _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        private static readonly TimeSpan _timestep = TimeSpan.FromMinutes(3);
+        private static readonly TimeSpan _timestep = TimeSpan.FromSeconds(30);
         private static readonly Encoding _encoding = new UTF8Encoding(false, true);
 
         public static int GenerateCode(byte[] securityToken, string modifier = null)
@@ -35,6 +35,30 @@ namespace Encryptions
             {
                 return ComputeTotp(hashAlgorithm, currentTimeStep, modifier);
             }
+        }
+        public static bool ValidateCode(byte[] securityToken, int code, string modifier = null)
+        {
+            if (securityToken == null)
+            {
+                throw new ArgumentNullException(nameof(securityToken));
+            }
+
+            // Allow a variance of no greater than 9 minutes in either direction
+            var currentTimeStep = GetCurrentTimeStepNumber();
+            using (var hashAlgorithm = new HMACSHA1((byte[])securityToken.Clone()))
+            {
+                for (var i = -2; i <= 2; i++)
+                {
+                    var computedTotp = ComputeTotp(hashAlgorithm, (ulong)((long)currentTimeStep + i), modifier);
+                    if (computedTotp == code)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // No match
+            return false;
         }
         /// <summary>
         /// 通过顶一个纪元(epoch)的起点与时间步长(time step)为单位计数
