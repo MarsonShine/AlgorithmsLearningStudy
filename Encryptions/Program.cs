@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Encryptions
 {
@@ -6,7 +7,12 @@ namespace Encryptions
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string key = "123456789qwertyu";
+            var token = Encoding.UTF8.GetBytes(key);
+            //byte[] key = new byte[] { }
+            var code = TotpAuthenticationService.GenerateCode(token);
+            TotpAuthenticationService.ValidateCode(token, code);
+            Console.WriteLine($"Hello World! {code:D6}");
         }
     }
 }
