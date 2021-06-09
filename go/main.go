@@ -13,4 +13,6 @@ func main() {
 	fmt.Println(longestValidParentheses("(())"))
 	fmt.Println(longestValidParentheses("(()())"))
 	fmt.Println(longestValidParentheses("(()())((()))"))
+
+	fmt.Println(longestValidParenthesesByDynamicProgram("())((())"))
 }
