@@ -32,4 +32,12 @@ func main() {
 	retArr[8] = queue.InsertFront(4)
 	retArr[9] = queue.GetFront()
 	fmt.Println(retArr...)
+
+	// fmt.Println(maxSlidingWindow([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
+	fmt.Println(maxSlidingWindow2([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3))
+	fmt.Println(maxSlidingWindow2([]int{1, 3, -1, -3, 5, 3, 6, 7}, 2))
+	fmt.Println(maxSlidingWindow2([]int{1, 3, -1, -3, 5, 3, 6, 7}, 4))
+	fmt.Println(maxSlidingWindow2([]int{7, 2, 4}, 2))
+	fmt.Println(maxSlidingWindow2([]int{7, 2, 4}, 3))
+	fmt.Println(maxSlidingWindow3([]int{1, 3, -1, -3, 5, 3, 6, 7}, 2))
 }
