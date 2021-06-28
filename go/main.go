@@ -40,4 +40,9 @@ func main() {
 	fmt.Println(maxSlidingWindow2([]int{7, 2, 4}, 2))
 	fmt.Println(maxSlidingWindow2([]int{7, 2, 4}, 3))
 	fmt.Println(maxSlidingWindow3([]int{1, 3, -1, -3, 5, 3, 6, 7}, 2))
+
+	fmt.Println(climbStairs(5))
+	fmt.Println(climbStairs2(5))
+	fmt.Println(climbStairs(44))
+	fmt.Println(climbStairs2(44))
 }
