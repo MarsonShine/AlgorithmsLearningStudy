@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	fmt.Println(isValid("()"))
@@ -43,6 +45,18 @@ func main() {
 
 	fmt.Println(climbStairs(5))
 	fmt.Println(climbStairs2(5))
-	fmt.Println(climbStairs(44))
-	fmt.Println(climbStairs2(44))
+	// fmt.Println(climbStairs(44))
+	// fmt.Println(climbStairs2(44))
+
+	fmt.Println(mySqrt(0))
+	fmt.Println(mySqrt(1))
+	fmt.Println(mySqrt(2))
+	fmt.Println(mySqrt(3))
+	// fmt.Println(mySqrt(4))
+	// fmt.Println(mySqrt(8))
+	// fmt.Println(mySqrt(10))
+	// fmt.Println(mySqrt(17))
+
+	fmt.Println(reverseWords("hello world marson shine"))
+	fmt.Println(reverseWords("a good   example"))
 }

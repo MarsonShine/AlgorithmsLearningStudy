@@ -19,8 +19,11 @@ namespace AlgorithmPractices {
     class Program {
         static void Main(string[] args) {
             Console.WriteLine("Hello World!");
+
+            Console.WriteLine(ReverseWords.MyReverseWords("a good   example"));
+            Console.ReadLine();
             #region 雪花算法生成ID
-            SnowflakeIdGenerator idGenerator = new SnowflakeIdGenerator();
+            // SnowflakeIdGenerator idGenerator = new SnowflakeIdGenerator();
 
             #endregion
 
