@@ -59,4 +59,14 @@ func main() {
 
 	fmt.Println(reverseWords("hello world marson shine"))
 	fmt.Println(reverseWords("a good   example"))
+
+	// fmt.Println(MyAtoi("  -0012a42"))
+	// fmt.Println(MyAtoi(""))
+	// fmt.Println(MyAtoi("+1"))
+	// fmt.Println(MyAtoi("42"))
+	// fmt.Println(MyAtoi("   -42"))
+	// fmt.Println(MyAtoi("4193 with words"))
+	// fmt.Println(MyAtoi("words and 987"))
+	fmt.Println(MyAtoi("-91283472332"))
+	fmt.Println(MyAtoi2("-91283472332"))
 }
