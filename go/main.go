@@ -69,4 +69,37 @@ func main() {
 	// fmt.Println(MyAtoi("words and 987"))
 	fmt.Println(MyAtoi("-91283472332"))
 	fmt.Println(MyAtoi2("-91283472332"))
+
+	root := TreeNode{
+		Val: 4,
+		Left: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val: 1,
+			},
+			Right: &TreeNode{
+				Val: 3,
+			},
+		},
+		Right: &TreeNode{
+			Val: 7,
+			Left: &TreeNode{
+				Val: 6,
+			},
+			Right: &TreeNode{
+				Val: 9,
+			},
+		},
+	}
+	newRoot := invertTree(&root)
+	fmt.Printf("%v", &newRoot)
+
+	root2 := TreeNode{
+		Val: 4,
+		Left: &TreeNode{
+			Val: 2,
+		},
+	}
+	newRoot = invertTree(&root2)
+	fmt.Printf("%v", &newRoot)
 }
