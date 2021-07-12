@@ -174,4 +174,14 @@ func main() {
 		},
 	}
 	fmt.Printf("%v", hasPathSum(&root, 5))
+
+	metrics := make([][]byte, 4)
+	metrics = [][]byte{{'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '0', '0', '0'}}
+	fmt.Printf("%d", numIslands(metrics))
+	metrics = [][]byte{{'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '0', '0', '0'}}
+	fmt.Printf("%d", bfsSearchLands(metrics))
+
+	metrics = [][]byte{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}}
+	fmt.Printf("%d", bfsSearchLands(metrics))
+
 }
