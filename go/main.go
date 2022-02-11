@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"main/dp"
 )
 
 func main() {
@@ -183,5 +184,8 @@ func main() {
 
 	metrics = [][]byte{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}}
 	fmt.Printf("%d", bfsSearchLands(metrics))
-
+	fmt.Println()
+	fmt.Printf("最大回撤值为：%d", maxDrawDown([]int{4, 5, 6, 8, 4, 3, 2, 6, 9, 1}))
+	fmt.Println("动态规划...")
+	fmt.Printf("%d台阶总有%d跳法", 10, dp.DP1(10))
 }
