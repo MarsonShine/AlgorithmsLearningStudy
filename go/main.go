@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"main/dp"
+	"net/url"
 )
 
 func main() {
@@ -188,4 +189,6 @@ func main() {
 	fmt.Printf("最大回撤值为：%d", maxDrawDown([]int{4, 5, 6, 8, 4, 3, 2, 6, 9, 1}))
 	fmt.Println("动态规划...")
 	fmt.Printf("%d台阶总有%d跳法", 10, dp.DP1(10))
+
+	url.Parse("http://localhost/?a=1&b=2&c=3#path")
 }
