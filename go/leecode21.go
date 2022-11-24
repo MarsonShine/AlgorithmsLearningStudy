@@ -15,7 +15,7 @@ func isValid(s string) bool {
 	}
 	for i := 0; i < l; i++ {
 		if m[s[i]] > 0 {
-			if len(arr) == 0 || arr[len(arr)-1] == m[s[i]] {
+			if len(arr) == 0 || arr[len(arr)-1] != m[s[i]] {
 				return false
 			}
 			arr = arr[:len(arr)-1]
