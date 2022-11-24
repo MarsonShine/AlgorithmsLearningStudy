@@ -191,4 +191,6 @@ func main() {
 	fmt.Printf("%d台阶总有%d跳法", 10, dp.DP1(10))
 
 	url.Parse("http://localhost/?a=1&b=2&c=3#path")
+
+	removeElement3([]int{3, 2, 2, 3}, 3)
 }
