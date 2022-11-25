@@ -193,4 +193,7 @@ func main() {
 	url.Parse("http://localhost/?a=1&b=2&c=3#path")
 
 	removeElement3([]int{3, 2, 2, 3}, 3)
+	sortedSquares([]int{-4, -1, 0, 3, 10})
+	sortedSquares2([]int{-4, -1, 0, 3, 10})
+	minSubArrayLen3(7, []int{2, 3, 1, 2, 4, 3})
 }

@@ -28,6 +28,7 @@ func removeElement2(nums []int, val int) int {
 	return slowIndex
 }
 
+// 快慢指针，最少的元素移动方法
 func removeElement3(nums []int, val int) int {
 	var leftIndex = 0
 	var rightIndex = len(nums) - 1
