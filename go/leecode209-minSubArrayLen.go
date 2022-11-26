@@ -116,3 +116,30 @@ func min(x, y int) int {
 [2,3,1,2,4,3]  7
 [0,2,5,6,8,12,15]
 */
+
+// 水果成篮 https://leetcode.cn/problems/fruit-into-baskets/
+func totalFruit(fruits []int) (ans int) {
+	cnt := make(map[int]int)
+	left := 0
+	for right, x := range fruits {
+		cnt[x]++
+		for len(cnt) > 2 {
+			// 第三个
+			y := fruits[left]
+			cnt[y]--
+			if cnt[y] == 0 {
+				delete(cnt, y)
+			}
+			left++
+		}
+		ans = max(ans, right-left+1)
+	}
+	return
+}
+
+/*
+[1,2,1]
+cnt[1]=1
+cnt[2]=2
+cnt[1]=2
+*/
