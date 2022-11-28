@@ -196,4 +196,6 @@ func main() {
 	sortedSquares([]int{-4, -1, 0, 3, 10})
 	sortedSquares2([]int{-4, -1, 0, 3, 10})
 	minSubArrayLen3(7, []int{2, 3, 1, 2, 4, 3})
+	reverseList(&ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: &ListNode{Val: 5, Next: nil}}}}})
+	swapPairs(&ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}}}})
 }
