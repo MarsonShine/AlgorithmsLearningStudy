@@ -200,4 +200,5 @@ func main() {
 	swapPairs(&ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}}}})
 	removeNthFromEnd(&ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}}}}, 2)
 	intersection2([]int{1, 2, 2, 1}, []int{2, 2})
+	replaceSpace2("We are happy.")
 }
