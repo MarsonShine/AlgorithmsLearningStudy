@@ -201,4 +201,6 @@ func main() {
 	removeNthFromEnd(&ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}}}}, 2)
 	intersection2([]int{1, 2, 2, 1}, []int{2, 2})
 	replaceSpace2("We are happy.")
+	// reverseWords2("the sky is blue")
+	reverseWords2("  hello world  ")
 }
