@@ -203,4 +203,5 @@ func main() {
 	replaceSpace2("We are happy.")
 	// reverseWords2("the sky is blue")
 	reverseWords2("  hello world  ")
+	reverseLeftWords2("abcdefg", 2)
 }
