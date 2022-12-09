@@ -204,4 +204,6 @@ func main() {
 	// reverseWords2("the sky is blue")
 	reverseWords2("  hello world  ")
 	reverseLeftWords2("abcdefg", 2)
+	strStr("sadbutsad", "sad")
+	strStr("ababababca", "abababca")
 }
