@@ -211,4 +211,6 @@ func main() {
 	mq.Push(1)
 	mq.Pop()
 	fmt.Printf("empty=%v\n", mq.Empty())
+
+	removeDuplicates("abbaca")
 }
