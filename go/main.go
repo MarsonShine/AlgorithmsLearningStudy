@@ -206,4 +206,9 @@ func main() {
 	reverseLeftWords2("abcdefg", 2)
 	strStr("sadbutsad", "sad")
 	strStr("ababababca", "abababca")
+
+	mq := NewMyQueueByStack()
+	mq.Push(1)
+	mq.Pop()
+	fmt.Printf("empty=%v\n", mq.Empty())
 }
