@@ -9,6 +9,7 @@ namespace BitMaps {
             BitMapOfChar bitMapOfChar = new BitMapOfChar(16);
             bitMapOfChar.Set(1);
             bitMapOfChar.Set(10);
+            bitMapOfChar.GetBoolean(10);
             bitMapOfChar.Set(14);
             bitMapOfChar.Set(16);
             bitMapOfChar.Set(20);
