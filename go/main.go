@@ -213,4 +213,5 @@ func main() {
 	fmt.Printf("empty=%v\n", mq.Empty())
 
 	removeDuplicates("abbaca")
+	topKFrequent2([]int{1, 1, 1, 2, 2, 3, 4, 4}, 2)
 }
