@@ -214,4 +214,20 @@ func main() {
 
 	removeDuplicates("abbaca")
 	topKFrequent2([]int{1, 1, 1, 2, 2, 3, 4, 4}, 2)
+
+	postorderTraversal2(&TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val: 9,
+		},
+		Right: &TreeNode{
+			Val: 4,
+			Left: &TreeNode{
+				Val: 5,
+			},
+			Right: &TreeNode{
+				Val: 7,
+			},
+		},
+	})
 }
