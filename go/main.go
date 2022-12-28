@@ -230,7 +230,7 @@ func main() {
 			},
 		},
 	})
-	levelOrderRecurisive(&TreeNode{
+	levelOrderRecursive(&TreeNode{
 		Val: 3,
 		Left: &TreeNode{
 			Val: 9,
