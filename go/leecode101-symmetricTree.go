@@ -1,34 +1,48 @@
 package main
 
-import (
-	"github.com/go-playground/locales/rof"
-	"golang.org/x/tools/go/analysis/passes/nilfunc"
-)
-
 // https://leetcode.cn/problems/symmetric-tree/
 // 对称二叉树
+
+var nullTreeVal = TreeNode{
+	Val: 0,
+}
+
+// bfs
 func isSymmetric(root *TreeNode) bool {
 	queue := []*TreeNode{}
-	if root != nil && (root.Left==nil||root.Right==nil) {
-		return true
+	if root != nil {
+		queue = append(queue, root.Left, root.Right)
 	}
 	for len(queue) > 0 {
-		length := len(queue)
-		for i := 0; i < length; i++ {
-			node := queue[0]
-			queue = queue[1:]
-			if node.Left != nil {
-				queue = append(queue, node.Left)
-			}
-			if node.Right != nil {
-				queue = append(queue, node.Right)
-			}
+		left := queue[0]
+		right := queue[1]
+		queue = queue[2:]
+		if left == nil && right == nil {
+			continue
 		}
-		if len(queue)%2 != 0 {
+		if left == nil || right == nil || left.Val != right.Val {
 			return false
 		}
-		for i := 0; i < len(queue)/2; i++ {
-			return queue[]
-		}
+		queue = append(queue, left.Left, right.Right, left.Right, right.Left)
 	}
+	return true
+}
+
+// dfs
+func isSymmetric2(root *TreeNode) bool {
+	if root == nil {
+		return true
+	}
+	return dfs(root.Left, root.Right)
+}
+
+func dfs(left *TreeNode, right *TreeNode) bool {
+	if left == nil && right == nil {
+		return true
+	} else if left == nil || right == nil {
+		return false
+	} else if left.Val != right.Val {
+		return false
+	}
+	return dfs(left.Left, right.Right) && dfs(left.Right, right.Left)
 }
