@@ -28,3 +28,34 @@ func dfs_binaryTreePaths(node *TreeNode, acc string) {
 		dfs_binaryTreePaths(node.Right, acc)
 	}
 }
+
+func binaryTreePaths2(root *TreeNode) []string {
+	results := []string{}
+	if root == nil {
+		return results
+	}
+	nodes := make([]*TreeNode, 0)
+	paths := make([]string, 0) // 存储当前的节点
+	nodes = append(nodes, root)
+	paths = append(paths, "")
+	for len(nodes) > 0 {
+		l := len(nodes)
+		node := nodes[l-1]
+		path := paths[l-1]
+		nodes = nodes[:l-1]
+		paths = paths[:l-1]
+		if node.Left == nil && node.Right == nil {
+			results = append(results, path+strconv.Itoa(node.Val))
+			continue
+		}
+		if node.Left != nil {
+			nodes = append(nodes, node.Left)
+			paths = append(paths, path+strconv.Itoa(node.Val)+"->")
+		}
+		if node.Right != nil {
+			nodes = append(nodes, node.Right)
+			paths = append(paths, path+strconv.Itoa(node.Val)+"->")
+		}
+	}
+	return results
+}

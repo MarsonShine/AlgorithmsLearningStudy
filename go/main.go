@@ -297,4 +297,16 @@ func main() {
 			},
 		},
 	})
+	binaryTreePaths2(&TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val: 2,
+			Right: &TreeNode{
+				Val: 5,
+			},
+		},
+		Right: &TreeNode{
+			Val: 3,
+		},
+	})
 }
