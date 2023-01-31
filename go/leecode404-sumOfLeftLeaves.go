@@ -55,3 +55,24 @@ func sumOfLeftLeaves2(root *TreeNode) int {
 	}
 	return ret
 }
+
+// 递归
+func sumOfLeftLeaves3(root *TreeNode) int {
+	return getSumOfLeftLeaves(root)
+}
+
+func getSumOfLeftLeaves(node *TreeNode) int {
+	if node == nil {
+		return 0
+	}
+	if node.Left == nil && node.Right == nil {
+		return 0
+	}
+	acc := 0
+	if node.Left != nil && node.Left.Left == nil && node.Left.Right == nil {
+		acc = node.Left.Val
+	}
+	acc += getSumOfLeftLeaves(node.Right)
+	acc += getSumOfLeftLeaves(node.Left)
+	return acc
+}
