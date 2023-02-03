@@ -309,4 +309,5 @@ func main() {
 			Val: 3,
 		},
 	})
+	buildTreeByInOrderAndPostOrder([]int{1, 2, 3, 4}, []int{2, 1, 4, 3})
 }
