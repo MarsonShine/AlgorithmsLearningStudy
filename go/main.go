@@ -313,4 +313,5 @@ func main() {
 	buildTreeByPreOrderAndInOrder([]int{3, 9, 20, 15, 7}, []int{9, 3, 15, 20, 7})
 	constructMaximumBinaryTree([]int{3, 2, 1, 6, 0, 5})
 	mergeTrees2(&TreeNode{Val: 1, Left: &TreeNode{Val: 3, Left: &TreeNode{Val: 5}}, Right: &TreeNode{Val: 2}}, &TreeNode{Val: 2, Left: &TreeNode{Val: 1, Right: &TreeNode{Val: 4}}, Right: &TreeNode{Val: 3, Right: &TreeNode{Val: 7}}})
+	getMinimumDifference(&TreeNode{Val: 236, Left: &TreeNode{Val: 104, Right: &TreeNode{Val: 227}}, Right: &TreeNode{Val: 701, Right: &TreeNode{Val: 911}}})
 }
