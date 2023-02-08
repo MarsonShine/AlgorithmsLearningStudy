@@ -48,3 +48,27 @@ func middleOrder(root *TreeNode) {
 	fmt.Printf("%d ", root.Val)
 	middleOrder(root.Right)
 }
+
+func isValidBST2(root *TreeNode) bool {
+	if root == nil {
+		return false
+	}
+	stack := []*TreeNode{}
+	cur := root
+	var pre *TreeNode = nil
+	for cur != nil || len(stack) > 0 {
+		if cur != nil {
+			stack = append(stack, cur)
+			cur = cur.Left
+		} else {
+			cur = stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			if pre != nil && cur.Val <= pre.Val {
+				return false
+			}
+			pre = cur
+			cur = cur.Right
+		}
+	}
+	return true
+}
