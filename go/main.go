@@ -315,4 +315,5 @@ func main() {
 	mergeTrees2(&TreeNode{Val: 1, Left: &TreeNode{Val: 3, Left: &TreeNode{Val: 5}}, Right: &TreeNode{Val: 2}}, &TreeNode{Val: 2, Left: &TreeNode{Val: 1, Right: &TreeNode{Val: 4}}, Right: &TreeNode{Val: 3, Right: &TreeNode{Val: 7}}})
 	getMinimumDifference(&TreeNode{Val: 236, Left: &TreeNode{Val: 104, Right: &TreeNode{Val: 227}}, Right: &TreeNode{Val: 701, Right: &TreeNode{Val: 911}}})
 	findMode(&TreeNode{Val: 1, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 2}}})
+	insertIntoBST3(&TreeNode{Val: 40, Left: &TreeNode{Val: 20, Left: &TreeNode{Val: 10}, Right: &TreeNode{Val: 30}}, Right: &TreeNode{Val: 60, Left: &TreeNode{Val: 50}, Right: &TreeNode{Val: 70}}}, 25)
 }
