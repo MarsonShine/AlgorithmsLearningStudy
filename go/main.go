@@ -318,4 +318,6 @@ func main() {
 	insertIntoBST3(&TreeNode{Val: 40, Left: &TreeNode{Val: 20, Left: &TreeNode{Val: 10}, Right: &TreeNode{Val: 30}}, Right: &TreeNode{Val: 60, Left: &TreeNode{Val: 50}, Right: &TreeNode{Val: 70}}}, 25)
 	// deleteNode(&TreeNode{Val: 5, Left: &TreeNode{Val: 3, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 4}}, Right: &TreeNode{Val: 6, Right: &TreeNode{Val: 7}}}, 5)
 	deleteNode(&TreeNode{Val: 3, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 5, Left: &TreeNode{Val: 4}, Right: &TreeNode{Val: 10, Left: &TreeNode{Val: 8, Left: &TreeNode{Val: 7}}, Right: &TreeNode{Val: 15}}}}, 5)
+	trimBST(&TreeNode{Val: 1, Left: &TreeNode{Val: 0}, Right: &TreeNode{Val: 2}}, 1, 2)
+	trimBST2(&TreeNode{Val: 3, Left: &TreeNode{Val: 0, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 1}}}, Right: &TreeNode{Val: 4}}, 1, 3)
 }
