@@ -320,4 +320,5 @@ func main() {
 	deleteNode(&TreeNode{Val: 3, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 5, Left: &TreeNode{Val: 4}, Right: &TreeNode{Val: 10, Left: &TreeNode{Val: 8, Left: &TreeNode{Val: 7}}, Right: &TreeNode{Val: 15}}}}, 5)
 	trimBST(&TreeNode{Val: 1, Left: &TreeNode{Val: 0}, Right: &TreeNode{Val: 2}}, 1, 2)
 	trimBST2(&TreeNode{Val: 3, Left: &TreeNode{Val: 0, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 1}}}, Right: &TreeNode{Val: 4}}, 1, 3)
+	sortedArrayToBST([]int{-10, -3, 0, 5, 9})
 }
