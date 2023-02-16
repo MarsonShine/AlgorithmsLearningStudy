@@ -324,4 +324,5 @@ func main() {
 	convertBST2(&TreeNode{Val: 4, Left: &TreeNode{Val: 1, Left: &TreeNode{Val: 0}, Right: &TreeNode{Val: 2, Right: &TreeNode{Val: 3}}}, Right: &TreeNode{Val: 6, Left: &TreeNode{Val: 5}, Right: &TreeNode{Val: 7, Right: &TreeNode{Val: 8}}}})
 	combine(4, 2)
 	combinationSum3(3, 7)
+	letterCombinations("23")
 }
