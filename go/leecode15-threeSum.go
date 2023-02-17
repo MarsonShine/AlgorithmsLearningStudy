@@ -6,8 +6,11 @@ import (
 
 // 双指针
 func threeSum(nums []int) [][]int {
-	sort.Ints(nums)
 	res := [][]int{}
+	if len(nums) < 3 {
+		return res
+	}
+	sort.Ints(nums)
 	for i := 0; i < len(nums)-2; i++ {
 		first := nums[i]
 		if first > 0 {
@@ -18,7 +21,7 @@ func threeSum(nums []int) [][]int {
 			continue
 		}
 		left, right := i+1, len(nums)-1
-		if left < right {
+		for left < right {
 			second, third := nums[left], nums[right]
 			if first+second+third == 0 {
 				res = append(res, []int{first, second, third})

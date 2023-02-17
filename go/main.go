@@ -325,4 +325,5 @@ func main() {
 	combine(4, 2)
 	combinationSum3(3, 7)
 	letterCombinations("23")
+	threeSum([]int{-1, 0, 1, 2, -1, -4})
 }
