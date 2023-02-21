@@ -22,7 +22,7 @@ func combinationSum2(candidates []int, target int) [][]int {
 			return
 		}
 		for i := index; i < len(cs); i++ {
-			if i > index && cs[i] == cs[i-1] {
+			if i > index && cs[i] == cs[i-1] { // 去重逻辑
 				continue
 			}
 			sum += cs[i]

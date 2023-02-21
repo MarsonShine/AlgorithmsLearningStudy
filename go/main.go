@@ -331,4 +331,5 @@ func main() {
 	partition("aab")
 	restoreIpAddresses("25525511135")
 	restoreIpAddresses2("25525511135")
+	subsets([]int{1, 2, 3})
 }
