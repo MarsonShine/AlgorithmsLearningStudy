@@ -335,4 +335,6 @@ func main() {
 	findSubsequences([]int{4, 6, 7, 7})
 	permute([]int{1, 2, 3})
 	permuteUnique([]int{1, 1, 2})
+	subsetsWithDup2([]int{1, 2, 2})
+	permuteUnique2([]int{1, 1, 2})
 }

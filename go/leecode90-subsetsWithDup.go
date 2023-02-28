@@ -25,3 +25,26 @@ func subsetsWithDup(nums []int) [][]int {
 	getSubsets(nums, 0)
 	return results
 }
+
+func subsetsWithDup2(nums []int) [][]int {
+	results := [][]int{}
+	paths := []int{}
+	var getSubsets func(ns []int, index int)
+	getSubsets = func(ns []int, index int) {
+		tmp := make([]int, len(paths))
+		copy(tmp, paths)
+		results = append(results, tmp)
+		m := make(map[int]bool, len(ns))
+		for i := index; i < len(ns); i++ {
+			if !m[ns[i]] {
+				m[ns[i]] = true
+				paths = append(paths, ns[i])
+				getSubsets(ns, i+1)
+				paths = paths[:len(paths)-1]
+			}
+		}
+	}
+	sort.Ints(nums)
+	getSubsets(nums, 0)
+	return results
+}
