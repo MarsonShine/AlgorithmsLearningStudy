@@ -337,4 +337,5 @@ func main() {
 	permuteUnique([]int{1, 1, 2})
 	subsetsWithDup2([]int{1, 2, 2})
 	permuteUnique2([]int{1, 1, 2})
+	findItinerary([][]string{{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}})
 }
