@@ -14,7 +14,7 @@ func solveSudoku(board [][]byte) {
 				}
 				// 放1~9数字
 				for n := '1'; n <= '9'; n++ {
-					if isSudoku(byte(n), i, j, board) {
+					if isValidSudoku(byte(n), i, j, board) {
 						board[i][j] = byte(n)
 						if getSudoku() {
 							return true
@@ -30,6 +30,25 @@ func solveSudoku(board [][]byte) {
 	getSudoku()
 }
 
-func isSudoku(n byte, row, col int, bord [][]byte) bool {
+// 同行，同列不能有相同的，1～9
+// 九宫格内的数字不能重复
+func isValidSudoku(n byte, row, col int, bord [][]byte) bool {
+	for i := 0; i < 9; i++ {
+		if bord[i][col] == n {
+			return false
+		}
+		if bord[row][i] == n {
+			return false
+		}
+		startRow := row / 3 * 3
+		startCol := col / 3 * 3
+		for j := startRow; j < startRow+3; j++ {
+			for k := startCol; k < startCol+3; k++ {
+				if bord[j][k] == n {
+					return false
+				}
+			}
+		}
+	}
 	return true
 }
