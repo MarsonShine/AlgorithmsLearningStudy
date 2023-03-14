@@ -339,4 +339,6 @@ func main() {
 	permuteUnique2([]int{1, 1, 2})
 	findItinerary([][]string{{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}})
 	solveNQueens(4)
+	findContentChildren([]int{1, 2}, []int{1, 2, 3})
+	findContentChildren2([]int{1, 2, 3}, []int{1, 1})
 }
