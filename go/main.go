@@ -342,4 +342,6 @@ func main() {
 	findContentChildren([]int{1, 2}, []int{1, 2, 3})
 	findContentChildren2([]int{1, 2, 3}, []int{1, 1})
 	maxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4})
+	canJump([]int{2, 3, 1, 1, 4})
+	canJump([]int{1, 1, 1, 0})
 }
