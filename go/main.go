@@ -344,4 +344,6 @@ func main() {
 	maxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4})
 	canJump([]int{2, 3, 1, 1, 4})
 	canJump([]int{1, 1, 1, 0})
+	// largestSumAfterKNegations([]int{-2, 9, 9, 8, 4}, 5)
+	largestSumAfterKNegations([]int{-4, -2, -3}, 4)
 }
