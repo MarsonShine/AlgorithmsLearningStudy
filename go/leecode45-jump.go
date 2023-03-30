@@ -19,10 +19,10 @@ func jumpii(nums []int) int {
 			// 如果最远位置不是终点，步数加1，更新当前（下一步）的最远位置范围
 			if curDistance < len(nums)-1 {
 				step++
-				curDistance = nextDistance
 				if nextDistance >= len(nums)-1 {
 					break
 				}
+				curDistance = nextDistance
 			} else {
 				break
 			}

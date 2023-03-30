@@ -346,4 +346,8 @@ func main() {
 	canJump([]int{1, 1, 1, 0})
 	// largestSumAfterKNegations([]int{-2, 9, 9, 8, 4}, 5)
 	largestSumAfterKNegations([]int{-4, -2, -3}, 4)
+	canCompleteCircuit([]int{1, 2, 3, 4, 5}, []int{3, 4, 5, 1, 2})
+	canCompleteCircuit([]int{2}, []int{1})
+	canCompleteCircuit2([]int{1, 2, 3, 4, 5}, []int{3, 4, 5, 1, 2})
+	canCompleteCircuit3([]int{1, 2, 3, 4, 5}, []int{3, 4, 5, 1, 2})
 }
