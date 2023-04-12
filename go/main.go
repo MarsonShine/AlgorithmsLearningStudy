@@ -352,4 +352,5 @@ func main() {
 	canCompleteCircuit3([]int{1, 2, 3, 4, 5}, []int{3, 4, 5, 1, 2})
 	candy([]int{1, 2, 2, 5, 4, 3, 2})
 	lemonadeChange([]int{5, 5, 10, 10, 20})
+	reconstructQueue([][]int{{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}})
 }
