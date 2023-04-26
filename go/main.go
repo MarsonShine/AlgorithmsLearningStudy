@@ -354,4 +354,5 @@ func main() {
 	lemonadeChange([]int{5, 5, 10, 10, 20})
 	reconstructQueue([][]int{{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}})
 	reconstructQueue2([][]int{{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}})
+	eraseOverlapIntervals2([][]int{{1, 2}, {2, 3}, {3, 4}, {1, 3}})
 }
