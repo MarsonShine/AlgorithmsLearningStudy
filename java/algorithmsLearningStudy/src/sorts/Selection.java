@@ -1,50 +1,27 @@
-package sorts;
-
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
-
 public class Selection {
-    public static <T extends Comparable<T>> void sort(T[] a) {
-        int n = a.length;
-        for (int i = 0; i < n; i++) {
-            int min = i;
-            for (int j = i + 1; j < n; j++) {
-                if (less(a[j], a[min]))
-                    min = j;
+    /**
+     * Sorts an array of comparable elements using the selection sort algorithm.
+     *
+     * @param array the array to be sorted
+     * @param <T>   the type of elements in the array
+     */
+    public static <T extends Comparable<T>> void sort(T[] array) {
+        int length = array.length;
+        for (int i = 0; i < length; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < length; j++) {
+                if (SortHelper.less(array[j], array[minIndex])) {
+                    minIndex = j;
+                }
             }
-            exch(a, i, min);
+            SortHelper.exch(array, i, minIndex);
         }
-    }
-
-    private static <T extends Comparable<T>> boolean less(T v, T w) {
-        return v.compareTo(w) < 0;
-    }
-
-    private static <T extends Comparable<T>> void exch(T[] a, int i, int j) {
-        T t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-
-    private static void show(String[] a) { // 在单行中打印数组
-        for (int i = 0; i < a.length; i++)
-            StdOut.print(a[i] + " ");
-        StdOut.println();
-    }
-
-    public static boolean isSorted(String[] a) {
-        for (int i = 1; i < a.length; i++) {
-            if (less(a[i], a[i - 1])) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
+        String[] a = new String[]{"A","G","S","E","P","W","C","D","B","F","H","I","J","K","L","M","N","Q","R","T","U","V","X","Y","Z"};
         sort(a);
-        assert isSorted(a);
-        show(a);
+        assert SortHelper.isSorted(a);
+        SortHelper.show(a);
     }
 }
