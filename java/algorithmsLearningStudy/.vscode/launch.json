@@ -1,0 +1,50 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Shell",
+            "request": "launch",
+            "mainClass": "Shell",
+            "projectName": "algorithmsLearningStudy_61f07328"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Example",
+            "request": "launch",
+            "mainClass": "Example",
+            "projectName": "algorithmsLearningStudy_61f07328"
+        },
+        {
+            "type": "java",
+            "name": "Insertion",
+            "request": "launch",
+            "mainClass": "Insertion",
+            "projectName": "algorithmsLearningStudy_61f07328"
+        },
+        {
+            "type": "java",
+            "name": "Selection",
+            "request": "launch",
+            "mainClass": "Selection",
+            "projectName": "algorithmsLearningStudy_61f07328"
+        },
+        {
+            "type": "java",
+            "name": "SortCompare",
+            "request": "launch",
+            "mainClass": "SortCompare",
+            "projectName": "algorithmsLearningStudy_61f07328",
+            "args": "Shell Insertion 100000 100"
+        }
+    ]
+}
