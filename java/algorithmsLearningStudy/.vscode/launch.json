@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Quick",
+            "request": "launch",
+            "mainClass": "Quick",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
+            "name": "Merge",
+            "request": "launch",
+            "mainClass": "Merge",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
             "name": "Shell",
             "request": "launch",
             "mainClass": "Shell",
