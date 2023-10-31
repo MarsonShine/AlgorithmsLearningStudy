@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MultiDimensionalSort",
+            "request": "launch",
+            "mainClass": "sorts.MultiDimensionalSort",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
             "name": "Quick",
             "request": "launch",
             "mainClass": "Quick",
