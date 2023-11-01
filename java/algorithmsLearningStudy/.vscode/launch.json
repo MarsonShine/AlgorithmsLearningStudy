@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BinarySearchST",
+            "request": "launch",
+            "mainClass": "BinarySearchST",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
             "name": "MultiDimensionalSort",
             "request": "launch",
             "mainClass": "sorts.MultiDimensionalSort",
