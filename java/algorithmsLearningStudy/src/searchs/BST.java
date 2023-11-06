@@ -1,7 +1,13 @@
+/*
+ * 二叉查找树，中序遍历：左 -> 根 -> 右；前序遍历：根 -> 左 -> 右；后序遍历：左 -> 右 -> 根
+ */
+
+import edu.princeton.cs.algs4.Queue;
+
 public class BST<TKey extends Comparable<TKey>, TValue> {
     private Node root;
 
-    private class Node {
+    public class Node {
         private TKey key;
         private TValue value;
         private Node left;
@@ -100,27 +106,28 @@ public class BST<TKey extends Comparable<TKey>, TValue> {
     }
 
     public void delete(TKey key) {
-        root = delete(root, key); 
+        root = delete(root, key);
     }
 
     public Node delete(Node node, TKey key) {
-        if(node == null) return null;
+        if (node == null)
+            return null;
         int cmp = key.compareTo(node.key);
-        if(cmp < 0) {
+        if (cmp < 0) {
             delete(node.left, key);
         } else if (cmp > 0) {
             delete(node.right, key);
-        }else {
+        } else {
             // 判断是否有子节点
             if (node.left == null) {
                 return node.right;
-            } else if(node.right == null) {
+            } else if (node.right == null) {
                 return node.left;
             }
             // 目标删除节点有两个子节点
             Node t = node; // 要删除的作为临时节点存储
-            node = min(t.right);
-            node.right = deleteMin(t.right);
+            node = min(t.right); // 找到删除的右节点的最小节点
+            node.right = deleteMin(t.right); // 将右节点的最小节点删除（因为该节点已经成为了新的父节点）
             node.left = t.left;
         }
         node.N = 1 + size(node.left) + size(node.right);
@@ -140,8 +147,8 @@ public class BST<TKey extends Comparable<TKey>, TValue> {
         return node;
     }
 
-    public Node min() {
-        return min(root);
+    public TKey min() {
+        return min(root).key;
     }
 
     private Node min(Node node) {
@@ -180,5 +187,50 @@ public class BST<TKey extends Comparable<TKey>, TValue> {
             return t;
         else
             return node;
+    }
+
+    public Iterable<TKey> keys() {
+        return keys(min(), max());
+    }
+
+    public Iterable<TKey> keys(TKey lo, TKey hi) {
+        Queue<TKey> queue = new Queue<>();
+        keys(root,queue,lo,hi);
+        return queue;
+    }
+
+    private void keys(Node node, Queue<TKey> queue, TKey lo, TKey hi) {
+        // 中序遍历
+        if (node == null) {
+            return;
+        }
+        int cmplo = lo.compareTo(node.key);
+        int cmphi = hi.compareTo(node.key);
+        if (cmplo < 0) {
+            keys(node.left,queue,lo,hi);
+        }
+        // 在 lo 和 hi 之间
+        if (cmplo <= 0 && cmphi >= 0) {
+            queue.enqueue(node.key);
+        }
+        if (cmphi > 0) {
+            keys(node.right,queue,lo,hi);
+        }
+    }
+
+    public static void main(String[] args) {
+        BST<Integer, String> bst = new BST<>();
+
+        // Insert some elements into the BST
+        bst.put(5, "S");
+        bst.put(2, "E");
+        bst.put(10, "X");
+        bst.put(1, "A");
+        bst.put(7, "R");
+        bst.put(9, "C");
+        bst.put(4, "H");
+        bst.put(3, "M");
+
+        bst.delete(10);
     }
 }
