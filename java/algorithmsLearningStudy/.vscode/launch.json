@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RedBlackBST",
+            "request": "launch",
+            "mainClass": "RedBlackBST",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
             "name": "BST",
             "request": "launch",
             "mainClass": "BST",
