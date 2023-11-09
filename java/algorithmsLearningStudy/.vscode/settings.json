@@ -4,7 +4,7 @@
     ],
     "java.project.sourcePaths": [
         "src/sorts",
+        "src/searchs",
         "src/execs",
-        "src/searchs"
     ]
 }

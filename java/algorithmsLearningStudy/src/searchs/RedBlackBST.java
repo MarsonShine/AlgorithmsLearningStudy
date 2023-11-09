@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.StdOut;
+
 public class RedBlackBST<TKey extends Comparable<TKey>, TValue> {
     private static final boolean RED = true;
     private static final boolean BLACK = false;
@@ -29,8 +31,8 @@ public class RedBlackBST<TKey extends Comparable<TKey>, TValue> {
     /**
      * Rotate the given node to the left.
      *
-     * @param  h   the node to rotate
-     * @return     the rotated node
+     * @param h the node to rotate
+     * @return the rotated node
      */
     private Node rotateLeft(Node h) {
         Node x = h.right;
@@ -54,6 +56,10 @@ public class RedBlackBST<TKey extends Comparable<TKey>, TValue> {
         return x;
     }
 
+    public int size() {
+        return size(root);
+    }
+
     private int size(Node x) {
         if (x == null) {
             return 0;
@@ -62,21 +68,22 @@ public class RedBlackBST<TKey extends Comparable<TKey>, TValue> {
     }
 
     /**
-     * Flips the colors of the given node and its children.
+     * 翻转节点及其两个子节点的颜色
      *
-     * @param  h  the node to flip colors for
+     * @param h the node to flip colors for
      */
     private void flipColors(Node h) {
-        h.color = RED;
-        h.left.color = BLACK;
-        h.right.color = BLACK;
+        // h 的颜色必须与两个子代的颜色相反
+        h.color = !h.color;
+        h.left.color = !h.left.color;
+        h.right.color = !h.right.color;
     }
 
     /**
      * Puts the specified key-value pair into the map.
      *
-     * @param  key   the key to be added
-     * @param  value the value associated with the key
+     * @param key   the key to be added
+     * @param value the value associated with the key
      */
     public void put(TKey key, TValue value) {
         root = put(root, key, value);
@@ -126,6 +133,90 @@ public class RedBlackBST<TKey extends Comparable<TKey>, TValue> {
         return h;
     }
 
+    public int rank(TKey key) {
+        return rank(root, key);
+    }
+
+    private int rank(Node node, TKey key) {
+        if (node == null) {
+            return 0;
+        }
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0) {
+            return rank(node.left, key);
+        } else if (cmp > 0) {
+            return 1 + size(node.left) + rank(node.right, key);
+        } else {
+            return size(node.left);
+        }
+    }
+
+    public TKey min() {
+        return min(root).key;
+    }
+
+    private Node min(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+        return min(node.left);
+    }
+
+    public TKey max() {
+        return max(root);
+    }
+
+    private TKey max(Node node) {
+        if (node.right == null) {
+            return node.key;
+        }
+        return max(node.right);
+    }
+
+    public void deleteMin() {
+        root = deleteMin(root);
+    }
+
+    private Node deleteMin(Node node) {
+        if (node.left == null)
+            return null;
+        if(!isRed(node.left) && !isRed(node.left.left)){
+            node = moveRedLeft(node);
+        }
+        node.left = deleteMin(node.left);
+        return balance(node);
+    }
+
+    /**
+     * 假设 node 是红色的，而 node.left 和 node.left.left 都是黑色的。请将 node.left 或它的一个孩子节点设为红色。
+     *
+     * @param  node  目标节点
+     * @return       the updated node after the red node has been moved
+     */
+    private Node moveRedLeft(Node node) {
+        flipColors(node);
+        if (isRed(node.right.left)) {
+            node.right = rotateRight(node.right);
+            node = rotateLeft(node);
+            flipColors(node);
+        }
+        return node;
+    }
+
+    private Node balance(Node node) {
+        if (isRed(node.right) && !isRed(node.left)) {
+            node = rotateLeft(node);
+        }
+        if(isRed(node.left) && isRed(node.left.left)){
+            node = rotateRight(node);
+        }
+        if(isRed(node.left) && isRed(node.right)){
+            flipColors(node);
+        }
+        node.N = size(node.left) + size(node.right) + 1;
+        return node;
+    }
+
     public static void main(String[] args) {
         RedBlackBST<String, Integer> st = new RedBlackBST<>();
         String str = "E A S Y Q U T I O N";
@@ -133,5 +224,8 @@ public class RedBlackBST<TKey extends Comparable<TKey>, TValue> {
         for (String s : strs) {
             st.put(s, st.get(s) == null ? 1 : st.get(s) + 1);
         }
+        StdOut.println("size = " + st.size());
+        StdOut.println("min = " + st.min());
+        StdOut.println("max = " + st.max());
     }
 }
