@@ -71,6 +71,20 @@ static int RealNumberHash(double key, int mask)
 
 Horner 算法是一种用于计算字符串散列值的经典算法，它的核心思想是将字符串转换为一系列数字，然后对这些数字进行特定操作。
 
+```c#
+static int HornelHash(string input,int mask)
+{
+    int hash = 0;
+    int length = input.Length;
+    for (int i = 0; i < length; i++)
+    {
+        char c = input[i];
+        hash = (hash * 31 + (c - 'a' + 1)) % mask;
+    }
+    return hash;
+}
+```
+
 
 
 ### 散列冲撞
