@@ -48,6 +48,31 @@ int hash(string key){
 
 所以我们无法设计一个无冲突的散列函数。那么我们该如何尽量避免散列冲撞呢？
 
+#### 实数散列
+
+如果键是0到1之间的实数，我们可以将它乘以 M 并四舍五入得到一个 0 至 M-1 之间的索引值。尽管这个方法很容易理解，但它是有缺陷的，因为这种情况下键的高位起的作用更大，最低位对散列的结果没有影响。修正这个问题的办法是将**键表示为二进制数然后再使用除留余数法**。
+
+```c#
+static int RealNumberHash(double key, int mask)
+{
+    // 将实数键转换为二进制数
+    long n = BitConverter.DoubleToInt64Bits(key);
+    string binaryKey = Convert.ToString(n, toBase: 2);
+    int hash = 0;
+    foreach (char c in binaryKey)
+    {
+        hash = (hash * 256 + (c - '0')) % mask;
+    }
+    return hash;
+}
+```
+
+#### Horner散列
+
+Horner 算法是一种用于计算字符串散列值的经典算法，它的核心思想是将字符串转换为一系列数字，然后对这些数字进行特定操作。
+
+
+
 ### 散列冲撞
 
 常用的有两种：开放寻址法（open addressing）和链表法（chaining）。

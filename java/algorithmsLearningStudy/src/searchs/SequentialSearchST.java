@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.Queue;
+
 public class SequentialSearchST<TKey, TValue> {
     private Node first;
 
@@ -31,5 +33,14 @@ public class SequentialSearchST<TKey, TValue> {
             }
         }
         first = new Node(key, val, first);
+    }
+
+    public Iterable<TKey> keys() {
+        // 返回所有键
+        Queue<TKey> queue = new Queue<>();
+        for (Node x = first; x != null; x = x.next) {
+            queue.enqueue(x.key);
+        }
+        return queue;
     }
 }
