@@ -6,6 +6,6 @@
         "src/sorts",
         "src/searchs",
         "src/execs",
-        "src\\graphs"
+        "src/graphs"
     ]
 }
