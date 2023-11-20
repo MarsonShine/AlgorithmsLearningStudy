@@ -3,12 +3,12 @@ import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class SymbolGraph {
+public class SymbolDigraph {
     private ST<String, Integer> st; // 符号名 -> 索引
     private String[] keys; // 索引 -> 符号名
-    private Graph G; // 图
+    private Digraph G; // 图
     // 根据文件和分隔符构造符号图
-    public SymbolGraph(String filename, String delim) {
+    public SymbolDigraph(String filename, String delim) {
         st = new ST<>();
         In in = new In(filename);
         while (in.hasNextLine()) {
@@ -25,7 +25,7 @@ public class SymbolGraph {
         }
 
         // 第二遍，构造图
-        G = new Graph(st.size());
+        G = new Digraph(st.size());
         in = new In(filename);
         while (in.hasNextLine()) {
             String[] a = in.readLine().split(delim);
@@ -51,15 +51,15 @@ public class SymbolGraph {
         return keys[v];
     }
 
-    public Graph G() {
+    public Digraph G() {
         return G;
     }
 
     public static void main(String[] args) {
         String filename = args[0];
         String delim = args[1];
-        SymbolGraph sg = new SymbolGraph(filename, delim);
-        Graph G = sg.G();
+        SymbolDigraph sg = new SymbolDigraph(filename, delim);
+        Digraph G = sg.G();
 
         while (!StdIn.hasNextLine()) {
             String source = StdIn.readLine();

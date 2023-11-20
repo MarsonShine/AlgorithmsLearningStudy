@@ -80,4 +80,14 @@ public class Graph {
         }
         return s;
     }
+
+    public boolean hasEdge(int v, int w) {
+        var edgeBag = adj[v];
+        for (Integer edge : edgeBag) {
+            if (edge == w) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
