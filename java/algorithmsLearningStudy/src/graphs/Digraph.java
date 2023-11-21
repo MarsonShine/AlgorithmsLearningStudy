@@ -4,6 +4,7 @@
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Digraph {
     private final int V;
@@ -87,5 +88,24 @@ public class Digraph {
             s += "\n";
         }
         return s;
+    }
+
+    public boolean hasEdge(int v, int w) {
+        for (Integer n : adj[v]) {
+            if (n == w) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args){
+        Digraph digraph = new Digraph(5);
+        digraph.addEdge(0, 1);
+        digraph.addEdge(0, 2);
+        digraph.addEdge(1, 3);
+        digraph.addEdge(1, 4);
+        digraph.addEdge(2, 3);
+        digraph.addEdge(2, 4);
     }
 }
