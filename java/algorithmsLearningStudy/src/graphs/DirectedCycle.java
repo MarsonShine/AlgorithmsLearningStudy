@@ -29,6 +29,7 @@ public class DirectedCycle {
             }
             else if (onStack[w]){ // 检测到有环
                 cycle = new Stack<>();
+                // 并从顶点 v 开始，通过追踪 edgeTo 数组中的边，将环路的顶点依次放入栈中。最后，将起点 v 也放入栈中，形成一个完整的环路。
                 for (int x = v; x != w; x = edgeTo[x]){
                     cycle.push(x);
                 }
