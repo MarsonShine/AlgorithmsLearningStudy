@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LSD",
+            "request": "launch",
+            "mainClass": "LSD",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
+            "name": "KeyIndexedStringCounter",
+            "request": "launch",
+            "mainClass": "KeyIndexedStringCounter",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
             "name": "RedBlackBST",
             "request": "launch",
             "mainClass": "RedBlackBST",
