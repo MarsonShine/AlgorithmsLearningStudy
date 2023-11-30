@@ -58,6 +58,7 @@ public class TrieST<TValue> {
     public Iterable<String> keysWithPrefix(String pre) {
         Queue<String> q = new Queue<>();
         collect(get(root, pre, 0), pre, q);
+        return q;
     }
 
     private void collect(Node x, String pre, Queue<String> q) {
