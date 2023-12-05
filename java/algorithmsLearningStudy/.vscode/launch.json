@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TrieST",
+            "request": "launch",
+            "mainClass": "TrieST",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
             "name": "LSD",
             "request": "launch",
             "mainClass": "LSD",
