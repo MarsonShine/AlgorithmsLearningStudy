@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BoyerMoore",
+            "request": "launch",
+            "mainClass": "BoyerMoore",
+            "projectName": "algorithmsLearningStudy_43d1038f"
+        },
+        {
+            "type": "java",
             "name": "KMP",
             "request": "launch",
             "mainClass": "KMP",
