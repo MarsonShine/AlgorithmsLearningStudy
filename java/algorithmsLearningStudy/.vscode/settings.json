@@ -7,6 +7,7 @@
         "src/searchs",
         "src/execs",
         "src/graphs",
-        "src/strings"
+        "src/strings",
+        "src/compress"
     ]
 }
