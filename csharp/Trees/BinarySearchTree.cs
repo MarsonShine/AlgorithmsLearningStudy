@@ -125,7 +125,7 @@ namespace Trees
     public class BinarySearchTree<TKey>
     {
         private readonly Comparer<TKey> comparer;
-        private BinarySearchTreeNode<TKey>? root;
+        private BinarySearchTreeNode<TKey> root;
         public BinarySearchTree()
         {
             comparer = Comparer<TKey>.Default;
